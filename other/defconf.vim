@@ -23,3 +23,5 @@ set noshowmode
 set splitbelow
 " set .pl to prolog
 let g:filetype_pl="prolog"
+
+autocmd BufNewFile,BufRead *.md set expandtab
