@@ -58,6 +58,10 @@ nnoremap <leader>d zL
 " Vertical panning
 nnoremap <leader>s zz
 
+" Moving up/down panning
+nnoremap <C-k> 26j zz
+nnoremap <C-i> 26k zz
+
 " Open Terminal
 nnoremap <leader>ot :split<cr>:resize 20<bar>:terminal<cr>i
 
