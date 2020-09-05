@@ -30,3 +30,6 @@ source ~/.config/nvim/other/keybindings.vim
 
 " Rust Outline
 source ~/.config/nvim/other/outline.vim
+
+" CoC
+source ~/.config/nvim/plugconf/coc.vim

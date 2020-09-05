@@ -2,7 +2,7 @@ call plug#begin()
 "	Plug 'pangloss/vim-javascript'
 "	Plug 'heavenshell/vim-jsdoc
 	Plug 'mattn/webapi-vim'
-	Plug 'Valloric/YouCompleteMe'
+	"Plug 'Valloric/YouCompleteMe'
 	Plug 'rust-lang/rust.vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'itchyny/lightline.vim'
@@ -15,4 +15,5 @@ call plug#begin()
 	Plug 'vim-latex/vim-latex'
 	Plug 'justinmk/vim-sneak'
 	Plug 'kevinhwang91/rnvimr', { 'do': 'make sync' }
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
