@@ -25,3 +25,4 @@ set splitbelow
 let g:filetype_pl="prolog"
 
 autocmd BufNewFile,BufRead *.md set expandtab
+autocmd FileType php setlocal autoindent
