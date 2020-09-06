@@ -21,6 +21,8 @@ set nobackup
 set noshowmode
 " New windowsplits appear at the bottom
 set splitbelow
+" Spaces
+set expandtab
 " set .pl to prolog
 let g:filetype_pl="prolog"
 
