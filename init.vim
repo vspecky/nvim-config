@@ -33,3 +33,12 @@ source ~/.config/nvim/other/outline.vim
 
 " CoC
 source ~/.config/nvim/plugconf/coc.vim
+
+" vim-which-key
+source ~/.config/nvim/plugconf/vwk.vim
+
+" lightline
+source ~/.config/nvim/plugconf/lightline.vim
+
+" Startify
+source ~/.config/nvim/plugconf/startifyvim.vim
