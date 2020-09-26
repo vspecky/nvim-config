@@ -12,58 +12,53 @@ imap <right> <nop>
 let mapleader = " "
 
 " Key maps
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>wq :wq<cr>
+nnoremap <silent> <leader>qQ :q!<cr>
+nnoremap <silent> <leader>qq :q<cr>
+nnoremap <silent> <leader>qw :wq<cr>
 
 " Outline map
-nnoremap <leader>fd :Outline<cr>
+nnoremap <silent> <leader>fd :Outline<cr>
 
 " Window switching
-nnoremap <leader>h :wincmd h<cr>
-nnoremap <leader>j :wincmd j<cr>
-nnoremap <leader>k :wincmd k<cr>
-nnoremap <leader>l :wincmd l<cr>
-
-" Window Switching with resizing
-nnoremap <leader>rh :wincmd h<cr> :vertical resize 125<cr>
-nnoremap <leader>rj :wincmd j<cr> :resize 80<cr>
-nnoremap <leader>rk :wincmd k<cr> :resize 80<cr>
-nnoremap <leader>rl :wincmd l<cr> :vertical resize 125<cr>
+nnoremap <silent> <leader>wh :wincmd h<cr>
+nnoremap <silent> <leader>wj :wincmd j<cr>
+nnoremap <silent> <leader>wk :wincmd k<cr>
+nnoremap <silent> <leader>wl :wincmd l<cr>
 
 " Tabbing
-nnoremap tn :tabnew<space>
-nnoremap tj :tabnext<cr>
-nnoremap tk :tabprev<cr>
-nnoremap th :tabfirst<cr>
-nnoremap tl :tablast<cr>
+nnoremap <silent> <leader>tn :tabnew<space>
+nnoremap <silent> <leader>tj :tabnext<cr>
+nnoremap <silent> <leader>tk :tabprev<cr>
+nnoremap <silent> <leader>th :tabfirst<cr>
+nnoremap <silent> <leader>tl :tablast<cr>
 
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
+nnoremap <silent> <leader>t1 1gt
+nnoremap <silent> <leader>t2 2gt
+nnoremap <silent> <leader>t3 3gt
+nnoremap <silent> <leader>t4 4gt
+nnoremap <silent> <leader>t5 5gt
+nnoremap <silent> <leader>t6 6gt
+nnoremap <silent> <leader>t7 7gt
+nnoremap <silent> <leader>t8 8gt
+nnoremap <silent> <leader>t9 9gt
 
 " Bracketing
 inoremap <C-x> {<cr><bs>}<esc>ko
 
 " Horizontal panning
-nnoremap <leader>a zH
-nnoremap <leader>d zL
+nnoremap <silent> <leader>sh zH
+nnoremap <silent> <leader>sl zL
 
 " Vertical panning
-nnoremap <leader>s zz
+nnoremap <silent> <leader>sc zz
 
 " Moving up/down panning
-nnoremap <C-k> 26j zz
-nnoremap <C-i> 26k zz
+nnoremap <silent> <leader>sj 26j zz
+nnoremap <silent> <leader>sk 26k zz
 
-" Open Terminal
-nnoremap <leader>ot :split<cr>:resize 20<bar>:terminal<cr>i
+" Terminal
+nnoremap <silent> <leader>ot :split<cr>:resize 20<bar>:terminal<cr>i
+tnoremap <C-b> <C-\><C-n>
 
 " Multiline comments
 inoremap <C-a> /*<cr>/<esc>ka<space>
@@ -74,10 +69,15 @@ nnoremap <leader>Cr :Crun<cr>
 nnoremap <leader>Cb :Cbuild<cr>
 nnoremap <leader>Ct :Ctest<cr>
 
-" Toggle vim-rainbow
-nnoremap <leader>tr :RainbowToggle<cr>
-" Toggle Indent Guides
-nnoremap <leader>ti :IndentGuidesToggle<cr>
-
 " Vim Ranger
 nnoremap <leader>od :RnvimrToggle<cr>
+
+" Vim Which Key
+nnoremap <silent> <leader> :WhichKey '<space>'<cr>
+
+" CoC (LSP)
+nnoremap <silent> <leader>oe :CocCommand explorer<cr>
+nnoremap <silent> <leader>of :CocCommand explorer --preset floating<cr>
+
+" Startify
+nnoremap <silent> <leader>ss :SSave<cr>
