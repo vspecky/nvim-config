@@ -12,18 +12,19 @@ imap <right> <nop>
 let mapleader = " "
 
 " Key maps
-nnoremap <silent> <leader>qQ :q!<cr>
-nnoremap <silent> <leader>qq :q<cr>
-nnoremap <silent> <leader>qw :wq<cr>
+nnoremap <silent> <leader>Q :q!<cr>
+nnoremap <silent> <leader>q :q<cr>
+nnoremap <silent> <leader>w :w<cr>
+nnoremap <silent> <leader>W :wq<cr>
 
 " Outline map
 nnoremap <silent> <leader>fd :Outline<cr>
 
 " Window switching
-nnoremap <silent> <leader>wh :wincmd h<cr>
-nnoremap <silent> <leader>wj :wincmd j<cr>
-nnoremap <silent> <leader>wk :wincmd k<cr>
-nnoremap <silent> <leader>wl :wincmd l<cr>
+nnoremap <silent> <leader>h :wincmd h<cr>
+nnoremap <silent> <leader>j :wincmd j<cr>
+nnoremap <silent> <leader>k :wincmd k<cr>
+nnoremap <silent> <leader>l :wincmd l<cr>
 
 " Tabbing
 nnoremap <silent> <leader>tn :tabnew<space>
