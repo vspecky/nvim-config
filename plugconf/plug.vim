@@ -20,4 +20,5 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vim-which-key'
     Plug 'mhinz/vim-startify'
+    Plug 'voldikss/vim-floaterm'
 call plug#end()

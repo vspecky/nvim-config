@@ -42,3 +42,6 @@ source ~/.config/nvim/plugconf/lightline.vim
 
 " Startify
 source ~/.config/nvim/plugconf/startifyvim.vim
+
+" Floaterm
+source ~/.config/nvim/plugconf/floaterm.vim
