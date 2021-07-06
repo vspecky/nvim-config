@@ -1,13 +1,12 @@
-
 " Disable arrow keys cuz fuck that
-map  <up>    <nop>
-imap <up>    <nop>
-map  <down>  <nop>
-imap <down>  <nop>
-map  <left>  <nop>
-imap <left>  <nop>
-map  <right> <nop>
-imap <right> <nop>
+nnoremap <silent> <up>    :resize +5<cr>
+inoremap <up>    <nop>
+nnoremap <silent> <down>  :resize -5<cr>
+inoremap <down>  <nop>
+nnoremap <silent> <left>  :vertical resize -5<cr>
+inoremap <left>  <nop>
+nnoremap <silent> <right> :vertical resize +5<cr>
+inoremap <right> <nop>
 
 let mapleader = " "
 
@@ -78,7 +77,28 @@ nnoremap <silent> <leader> :WhichKey '<space>'<cr>
 
 " CoC (LSP)
 nnoremap <silent> <leader>oe :CocCommand explorer<cr>
-nnoremap <silent> <leader>of :CocCommand explorer --preset floating<cr>
 
 " Startify
 nnoremap <silent> <leader>ss :SSave<cr>
+
+" Keep Visual Mode selections when indenting
+vnoremap > >gv
+vnoremap < <gv
+
+" Horizontal Resizing
+nnoremap <silent> <C-K> :resize +5<cr>
+nnoremap <silent> <C-J> :resize -5<cr>
+
+" Vertical Resizing
+nnoremap <silent> <C-L> :vertical resize +5<cr>
+nnoremap <silent> <C-H> :vertical resize -5<cr>
+
+" Clipboard support
+vnoremap <silent> Y "+y
+
+" Toggle between buffers
+nnoremap <silent> <leader><leader> <C-^>
+
+" FZF File and Buffer search
+nnoremap <silent> <leader>of :Files<cr>
+nnoremap <silent> <leader>b :Buffers<cr>

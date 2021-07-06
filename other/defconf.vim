@@ -1,4 +1,3 @@
-
 syntax on
 filetype plugin indent on
 
@@ -25,6 +24,15 @@ set splitbelow
 set expandtab
 " set .pl to prolog
 let g:filetype_pl="prolog"
+
+set colorcolumn=84
+set updatetime=300
+set signcolumn=yes
+set splitright
+set foldmethod=syntax
+set foldnestmax=2
+
+set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono:h12
 
 autocmd BufNewFile,BufRead *.md set expandtab
 autocmd FileType php setlocal autoindent

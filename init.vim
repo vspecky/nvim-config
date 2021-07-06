@@ -45,3 +45,6 @@ source ~/.config/nvim/plugconf/startifyvim.vim
 
 " Floaterm
 source ~/.config/nvim/plugconf/floaterm.vim
+
+" Toggle Background
+source ~/.config/nvim/scripts/togglebackground.vim

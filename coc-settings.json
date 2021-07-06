@@ -7,5 +7,13 @@
         "v": "open:vsplit"
       },
 
-      "python.jediEnabled": false
+      "diagnostic.refreshOnInsertMode": true,
+      "diagnostic.warningSign": "",
+      "diagnostic.errorSign": "E",
+      "diagnostic.hintSign": "H",
+      "diagnostic.checkCurrentLine": true,
+      "javascript.suggestionActions.enabled": false,
+      "python.linting.enabled": true,
+      "python.analysis.typeCheckingMode": "off",
+      "python.formatting.provider": "black"
 }
