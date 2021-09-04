@@ -1,8 +1,6 @@
 " Default vim config
 source ~/.config/nvim/other/defconf.vim
 
-set termguicolors
-
 " Plugins
 source ~/.config/nvim/plugconf/plug.vim
 
@@ -35,9 +33,6 @@ source ~/.config/nvim/plugconf/rnvimr.vim
 
 " Colorscheme
 source ~/.config/nvim/other/colorscheme.vim
-
-" Keybindings
-source ~/.config/nvim/other/keybindings.vim
 
 " Rust Outline
 "source ~/.config/nvim/other/outline.vim
@@ -78,6 +73,12 @@ source ~/.config/nvim/plugconf/treesitter.vim
 " completion
 source ~/.config/nvim/plugconf/completion.vim
 
+" dap
+source ~/.config/nvim/plugconf/dap.vim
+
+" dap-ui
+source ~/.config/nvim/plugconf/dapui.vim
+
 " lualine
 source ~/.config/nvim/plugconf/lualine.vim
 
@@ -86,3 +87,12 @@ source ~/.config/nvim/plugconf/toggleterm.vim
 
 " trouble
 source ~/.config/nvim/plugconf/trouble.vim
+
+" Aerial
+source ~/.config/nvim/plugconf/aerial.vim
+
+" Indent Blankline
+source ~/.config/nvim/plugconf/indentblankline.vim
+
+" Keybindings
+source ~/.config/nvim/other/keybindings.vim

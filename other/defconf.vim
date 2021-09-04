@@ -26,8 +26,13 @@ set expandtab
 let g:filetype_pl="prolog"
 " Mouse
 set mouse=a
-
+" Support for hidden windows
 set hidden
+" Terminal Gui colors
+set termguicolors
+
+" Leader key
+let mapleader = " "
 
 "set colorcolumn=84
 set updatetime=300

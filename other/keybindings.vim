@@ -1,14 +1,12 @@
 " Disable arrow keys cuz fuck that
-nnoremap <silent> <up>    :resize +5<cr>
+nnoremap <silent> <up>    :resize +1<cr>
 inoremap <up>    <nop>
-nnoremap <silent> <down>  :resize -5<cr>
+nnoremap <silent> <down>  :resize -1<cr>
 inoremap <down>  <nop>
-nnoremap <silent> <left>  :vertical resize -5<cr>
+nnoremap <silent> <left>  :vertical resize -1<cr>
 inoremap <left>  <nop>
-nnoremap <silent> <right> :vertical resize +5<cr>
+nnoremap <silent> <right> :vertical resize +1<cr>
 inoremap <right> <nop>
-
-let mapleader = " "
 
 " Key maps
 nnoremap <silent> <leader>Q :q!<cr>
@@ -85,13 +83,13 @@ nnoremap <silent> <leader>ss :SSave<cr>
 vnoremap > >gv
 vnoremap < <gv
 
-" Horizontal Resizing
-nnoremap <silent> <C-K> :resize +5<cr>
-nnoremap <silent> <C-J> :resize -5<cr>
+" " Horizontal Resizing
+" nnoremap <silent> <C-K> :resize +5<cr>
+" nnoremap <silent> <C-J> :resize -5<cr>
 
-" Vertical Resizing
-nnoremap <silent> <C-L> :vertical resize +5<cr>
-nnoremap <silent> <C-H> :vertical resize -5<cr>
+" " Vertical Resizing
+" nnoremap <silent> <C-L> :vertical resize +5<cr>
+" nnoremap <silent> <C-H> :vertical resize -5<cr>
 
 " Clipboard support
 vnoremap <silent> <leader>y "+y
@@ -104,8 +102,8 @@ nnoremap <silent> <leader>P "+P
 nnoremap <silent> <leader><leader> <C-^>
 
 " FZF File and Buffer search
-nnoremap <silent> <leader>of :Files<cr>
-nnoremap <silent> <leader>ob :Buffers<cr>
+" nnoremap <silent> <leader>of :Files<cr>
+" nnoremap <silent> <leader>ob :Buffers<cr>
 
 " Ripgrep
 nnoremap <silent> <leader>or :Rg<cr>
@@ -153,6 +151,14 @@ tnoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm dir=."<CR>
 nnoremap <silent> <leader>od <cmd>TroubleToggle<cr>
 " nnoremap <silent> <leader>dd <cmd>TroubleToggle lsp_document_diagnostics<cr>
 " nnoremap <silent> <leader>dw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
+
+" DAP UI
+nnoremap <silent> <leader>do <cmd>lua require'dapui'.toggle()<cr>
+nnoremap <silent> <leader>dt <cmd>lua require'dapui'.toggle("tray")<cr>
+nnoremap <silent> <leader>ds <cmd>lua require'dapui'.toggle("sidebar")<cr>
+
+" Symbols Outline
+nnoremap <silent> <leader>os <cmd>SymbolsOutline<cr>
 
 "" lightline-bufferline
 "nmap <silent> <leader>b1 <Plug>lightline#bufferline#go(1)
