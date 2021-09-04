@@ -9,11 +9,19 @@
 
       "diagnostic.refreshOnInsertMode": true,
       "diagnostic.warningSign": "",
-      "diagnostic.errorSign": "E",
-      "diagnostic.hintSign": "H",
+      "diagnostic.errorSign": "",
+      "diagnostic.hintSign": "",
       "diagnostic.checkCurrentLine": true,
       "javascript.suggestionActions.enabled": false,
       "python.linting.enabled": true,
-      "python.analysis.typeCheckingMode": "off",
-      "python.formatting.provider": "black"
+      "python.analysis.typeCheckingMode": "basic",
+      "python.formatting.provider": "black",
+      "pydocstring.formatter": "numpy",
+      "languageserver": {
+            "golang": {
+                  "command": "gopls",
+                  "rootPatterns": ["go.mod", ".git/"],
+                  "filetypes": ["go"]
+            }
+      }
 }

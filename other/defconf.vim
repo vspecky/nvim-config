@@ -24,15 +24,31 @@ set splitbelow
 set expandtab
 " set .pl to prolog
 let g:filetype_pl="prolog"
+" Mouse
+set mouse=a
 
-set colorcolumn=84
+set hidden
+
+"set colorcolumn=84
 set updatetime=300
 set signcolumn=yes
 set splitright
-set foldmethod=syntax
-set foldnestmax=2
+"set foldmethod=syntax
+"set foldnestmax=2
+"set showtabline=2
 
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono:h12
 
 autocmd BufNewFile,BufRead *.md set expandtab
 autocmd FileType php setlocal autoindent
+
+lua << EOF
+vim.fn.sign_define("LspDiagnosticsSignError",
+    {text = "", texthl = "GruvboxRed"})
+vim.fn.sign_define("LspDiagnosticsSignWarning",
+    {text = "", texthl = "GruvboxYellow"})
+vim.fn.sign_define("LspDiagnosticsSignInformation",
+    {text = "", texthl = "GruvboxBlue"})
+vim.fn.sign_define("LspDiagnosticsSignHint",
+    {text = "", texthl = "GruvboxAqua"})
+EOF
