@@ -11,14 +11,26 @@ blankline.setup {
         "aerial",
         "dashboard",
         "NvimTree",
-        "help"
+        "help",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dap-repl",
+        "httpResult"
     },
     filetype_exclude = {
         "terminal",
         "aerial",
         "dashboard",
         "NvimTree",
-        "help"
+        "help",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dap-repl",
+        "httpResult"
     }
 }
 EOF

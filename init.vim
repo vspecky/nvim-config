@@ -29,7 +29,7 @@ source ~/.config/nvim/plugconf/bufferline.vim
 source ~/.config/nvim/plugconf/sneak.vim
 
 " rnvimr config
-source ~/.config/nvim/plugconf/rnvimr.vim
+" source ~/.config/nvim/plugconf/rnvimr.vim
 
 " Colorscheme
 source ~/.config/nvim/other/colorscheme.vim
@@ -40,17 +40,17 @@ source ~/.config/nvim/other/colorscheme.vim
 " CoC
 "source ~/.config/nvim/plugconf/coc.vim
 
-" vim-which-key
+" which-key
 source ~/.config/nvim/plugconf/vwk.vim
 
 " lightline
 "source ~/.config/nvim/plugconf/lightline.vim
 
 " Startify
-source ~/.config/nvim/plugconf/startifyvim.vim
+" source ~/.config/nvim/plugconf/startifyvim.vim
 
 " Floaterm
-source ~/.config/nvim/plugconf/floaterm.vim
+" source ~/.config/nvim/plugconf/floaterm.vim
 
 " Toggle Background
 source ~/.config/nvim/scripts/togglebackground.vim
@@ -93,6 +93,18 @@ source ~/.config/nvim/plugconf/aerial.vim
 
 " Indent Blankline
 source ~/.config/nvim/plugconf/indentblankline.vim
+
+" Presence (Discord)
+source ~/.config/nvim/plugconf/presence.vim
+
+" Rest client
+source ~/.config/nvim/plugconf/rest.vim
+
+" Numb
+source ~/.config/nvim/plugconf/numb.vim
+
+" Treesitter Context
+source ~/.config/nvim/plugconf/treesittercontext.vim
 
 " Keybindings
 source ~/.config/nvim/other/keybindings.vim

@@ -18,10 +18,10 @@ nnoremap <silent> <leader>W :wq<cr>
 "nnoremap <silent> <leader>fd :Outline<cr>
 
 " Window switching
-nnoremap <silent> <leader>h :wincmd h<cr>
-nnoremap <silent> <leader>j :wincmd j<cr>
-nnoremap <silent> <leader>k :wincmd k<cr>
-nnoremap <silent> <leader>l :wincmd l<cr>
+nnoremap <silent> <leader><left> :wincmd h<cr>
+nnoremap <silent> <leader><down> :wincmd j<cr>
+nnoremap <silent> <leader><up> :wincmd k<cr>
+nnoremap <silent> <leader><right> :wincmd l<cr>
 
 " Tabbing
 nnoremap <silent> <leader>tn :tabnew<space>
@@ -47,37 +47,37 @@ inoremap <C-x> {<cr><bs>}<esc>ko
 nnoremap <silent> <C-h> zH
 nnoremap <silent> <C-l> zL
 
-" Vertical panning
-nnoremap <silent> <leader>sc zz
+" " Vertical panning
+" nnoremap <silent> <leader>sc zz
 
-" Moving up/down panning
-nnoremap <silent> <leader>sj 26j zz
-nnoremap <silent> <leader>sk 26k zz
+" " Moving up/down panning
+" nnoremap <silent> <leader>sj 26j zz
+" nnoremap <silent> <leader>sk 26k zz
 
 " Terminal
-nnoremap <silent> <leader>ot :split<cr>:resize 20<bar>:terminal<cr>i
+" nnoremap <silent> <leader>ot :split<cr>:resize 20<bar>:terminal<cr>i
 tnoremap <C-b> <C-\><C-n>
 
 " Multiline comments
 inoremap <C-a> /*<cr>/<esc>ka<space>
 
 " Cargo commands
-nnoremap <leader>Cc :Ccheck<cr>
-nnoremap <leader>Cr :Crun<cr>
-nnoremap <leader>Cb :Cbuild<cr>
-nnoremap <leader>Ct :Ctest<cr>
+" nnoremap <leader>Cc :Ccheck<cr>
+" nnoremap <leader>Cr :Crun<cr>
+" nnoremap <leader>Cb :Cbuild<cr>
+" nnoremap <leader>Ct :Ctest<cr>
 
 " Vim Ranger
 " nnoremap <leader>od :RnvimrToggle<cr>
 
 " Vim Which Key
-nnoremap <silent> <leader> :WhichKey '<space>'<cr>
+" nnoremap <silent> <leader> :WhichKey '<space>'<cr>
 
 " Nvim Tree
-nnoremap <silent> <leader>oe :NvimTreeToggle<cr>
+nnoremap <silent> <leader>oe <cmd>NvimTreeToggle<cr>
 
 " Startify
-nnoremap <silent> <leader>ss :SSave<cr>
+" nnoremap <silent> <leader>ss :SSave<cr>
 
 " Keep Visual Mode selections when indenting
 vnoremap > >gv
@@ -106,24 +106,28 @@ nnoremap <silent> <leader><leader> <C-^>
 " nnoremap <silent> <leader>ob :Buffers<cr>
 
 " Ripgrep
-nnoremap <silent> <leader>or :Rg<cr>
+nnoremap <silent> <leader>or <cmd>Rg<cr>
 
 " NERDCommenter
 nmap <silent> <leader>cc <plug>NERDCommenterComment
 vmap <silent> <leader>cc <plug>NERDCommenterComment
 nmap <silent> <leader>cu <plug>NERDCommenterUncomment
 vmap <silent> <leader>cu <plug>NERDCommenterUncomment
+nmap <silent> <leader>ct <plug>NERDCommenterToggle
+vmap <silent> <leader>ct <plug>NERDCommenterToggle
+nmap <silent> <leader>cs <plug>NERDCommenterSexy
+vmap <silent> <leader>cs <plug>NERDCommenterSexy
 
 " Lspsaga
-nnoremap <silent> <leader>ca <cmd>Lspsaga code_action<cr>
-vnoremap <silent> <leader>ca <cmd><C-U>Lspsaga range_code_action<cr>
+nnoremap <silent> <leader>la <cmd>Lspsaga code_action<cr>
+vnoremap <silent> <leader>la <cmd><C-U>Lspsaga range_code_action<cr>
 
 nnoremap <silent> K <cmd>Lspsaga hover_doc<cr>
-nnoremap <silent> gs <cmd>Lspsaga signature_help<cr>
-nnoremap <silent> gr <cmd>Lspsaga rename<cr>
-nnoremap <silent> gp <cmd>Lspsaga preview_definition<cr>
+" nnoremap <silent> gs <cmd>Lspsaga signature_help<cr>
+nnoremap <silent> <leader>ln <cmd>Lspsaga rename<cr>
+nnoremap <silent> <leader>lp <cmd>Lspsaga preview_definition<cr>
 
-nnoremap <silent> <leader>e <cmd>Lspsaga show_line_diagnostics<cr>
+nnoremap <silent> <leader>le <cmd>Lspsaga show_line_diagnostics<cr>
 
 " Telescope
 nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
@@ -137,28 +141,58 @@ nnoremap <silent> <leader>fd <cmd>Telescope lsp_document_diagnostics<cr>
 nnoremap <silent> <leader>bp :BufferLinePick<cr>
 nnoremap <silent> <leader>bd :BufferLinePickClose<cr>
 
-nnoremap <silent> <leader>] :BufferLineCycleNext<cr>
-nnoremap <silent> <leader>[ :BufferLineCyclePrev<cr>
+nnoremap <silent> <leader>b] :BufferLineCycleNext<cr>
+nnoremap <silent> <leader>b[ :BufferLineCyclePrev<cr>
 
-nnoremap <silent> <leader>} :BufferLineMoveNext<cr>
-nnoremap <silent> <leader>{ :BufferLineMovePrev<cr>
+nnoremap <silent> <leader>b} :BufferLineMoveNext<cr>
+nnoremap <silent> <leader>b{ :BufferLineMovePrev<cr>
 
 " Toggleterm
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm dir=."<CR>
 tnoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm dir=."<CR>
 
 " Trouble
-nnoremap <silent> <leader>od <cmd>TroubleToggle<cr>
+nnoremap <silent> <leader>ot <cmd>TroubleToggle<cr>
 " nnoremap <silent> <leader>dd <cmd>TroubleToggle lsp_document_diagnostics<cr>
 " nnoremap <silent> <leader>dw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
 
+" DAP (Debugger)
+nnoremap <silent> <F5> <cmd>lua require'dap'.toggle_breakpoint()<cr>
+nnoremap <silent> <leader>db <cmd>lua require'dap'.toggle_breakpoint()<cr>
+
+nnoremap <silent> <F8> <cmd>lua require'dap'.run_to_cursor()<cr>
+nnoremap <silent> <leader>dp <cmd>lua require'dap'.run_to_cursor()<cr>
+
+nnoremap <silent> <F9> <cmd>lua require'dap'.continue()<cr>
+nnoremap <silent> <leader>dc <cmd>lua require'dap'.continue()<cr>
+
+nnoremap <silent> <F10> <cmd>lua require'dap'.close()<cr>
+nnoremap <silent> <leader>dq <cmd>lua require'dap'.close()<cr>
+
+nnoremap <silent> <F11> <cmd>lua require'dap'.repl.open()<cr>
+nnoremap <silent> <leader>dr <cmd>lua require'dap'.repl.open()<cr>
+
+nnoremap <silent> <F6> <cmd>lua require'dap'.step_over()<cr>
+nnoremap <silent> <leader>do <cmd>lua require'dap'.step_over()<cr>
+
+nnoremap <silent> <F7> <cmd>lua require'dap'.step_into()<cr>
+nnoremap <silent> <leader>di <cmd>lua require'dap'.step_into()<cr>
+
 " DAP UI
-nnoremap <silent> <leader>do <cmd>lua require'dapui'.toggle()<cr>
-nnoremap <silent> <leader>dt <cmd>lua require'dapui'.toggle("tray")<cr>
-nnoremap <silent> <leader>ds <cmd>lua require'dapui'.toggle("sidebar")<cr>
+nnoremap <silent> <leader>duo <cmd>lua require'dapui'.toggle()<cr>
+nnoremap <silent> <leader>dut <cmd>lua require'dapui'.toggle("tray")<cr>
+nnoremap <silent> <leader>dus <cmd>lua require'dapui'.toggle("sidebar")<cr>
 
 " Symbols Outline
 nnoremap <silent> <leader>os <cmd>SymbolsOutline<cr>
+
+" Pydocstring
+autocmd FileType python nnoremap <silent> <leader>cd <cmd>Pydocstring<cr>
+
+" Rest client
+nnoremap <silent> <leader>rr <Plug>RestNvim
+nnoremap <silent> <leader>rp <Plug>RestNvimPreview
+nnoremap <silent> <leader>ra <Plug>RestNvimLast
 
 "" lightline-bufferline
 "nmap <silent> <leader>b1 <Plug>lightline#bufferline#go(1)

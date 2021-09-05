@@ -20,9 +20,9 @@ call plug#begin()
     Plug 'airblade/vim-rooter'
 	" Plug 'kevinhwang91/rnvimr', { 'do': 'make sync' }
 	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'liuchengxu/vim-which-key'
+    " Plug 'liuchengxu/vim-which-key'
     " Plug 'mhinz/vim-startify'
-    Plug 'voldikss/vim-floaterm'
+    " Plug 'voldikss/vim-floaterm'
     "Plug 'pangloss/vim-javascript'
     "Plug 'dense-analysis/ale'
     "Plug 'autozimu/LanguageClient-neovim', {
@@ -60,4 +60,9 @@ call plug#begin()
     Plug 'glepnir/dashboard-nvim'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'dstein64/nvim-scrollview'
+    Plug 'folke/which-key.nvim'
+    Plug 'andweeb/presence.nvim'
+    Plug 'NTBBloodbath/rest.nvim'
+    Plug 'nacro90/numb.nvim'
+    Plug 'romgrk/nvim-treesitter-context'
 call plug#end()
