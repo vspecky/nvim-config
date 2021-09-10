@@ -44,7 +44,8 @@ set splitright
 
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono:h12
 
-autocmd BufNewFile,BufRead *.md set expandtab
+" autocmd BufNewFile,BufRead *.md set expandtab
+autocmd BufNewFile,BufRead *.tsx set ts=2 sw=2
 autocmd FileType php setlocal autoindent
 
 lua << EOF
