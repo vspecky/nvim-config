@@ -1,11 +1,11 @@
 " Disable arrow keys cuz fuck that
-nnoremap <silent> <up>    :resize +1<cr>
+" nnoremap <silent> <up>    :resize +1<cr>
 inoremap <up>    <nop>
-nnoremap <silent> <down>  :resize -1<cr>
+" nnoremap <silent> <down>  :resize -1<cr>
 inoremap <down>  <nop>
-nnoremap <silent> <left>  :vertical resize -1<cr>
+" nnoremap <silent> <left>  :vertical resize -1<cr>
 inoremap <left>  <nop>
-nnoremap <silent> <right> :vertical resize +1<cr>
+" nnoremap <silent> <right> :vertical resize +1<cr>
 inoremap <right> <nop>
 
 " Key maps
@@ -18,10 +18,22 @@ nnoremap <silent> <leader>W :wq<cr>
 "nnoremap <silent> <leader>fd :Outline<cr>
 
 " Window switching
-nnoremap <silent> <leader><left> :wincmd h<cr>
-nnoremap <silent> <leader><down> :wincmd j<cr>
-nnoremap <silent> <leader><up> :wincmd k<cr>
-nnoremap <silent> <leader><right> :wincmd l<cr>
+" nnoremap <silent> <leader><left> :wincmd h<cr>
+" nnoremap <silent> <leader><down> :wincmd j<cr>
+" nnoremap <silent> <leader><up> :wincmd k<cr>
+" nnoremap <silent> <leader><right> :wincmd l<cr>
+
+" Window resizing
+nmap <silent> <C-up> <cmd>resize +1<cr>
+nmap <silent> <C-down> <cmd>resize -1<cr>
+nmap <silent> <C-left> <cmd>vertical resize -1<cr>
+nmap <silent> <C-right> <cmd>vertical resize +1<cr>
+
+" Window switching
+nmap <silent> <left> <cmd>wincmd h<cr>
+nmap <silent> <down> <cmd>wincmd j<cr>
+nmap <silent> <up> <cmd>wincmd k<cr>
+nmap <silent> <right> <cmd>wincmd l<cr>
 
 " Tabbing
 nnoremap <silent> <leader>tn :tabnew<space>
@@ -46,6 +58,10 @@ inoremap <C-x> {<cr><bs>}<esc>ko
 " Horizontal panning
 nnoremap <silent> <C-h> zH
 nnoremap <silent> <C-l> zL
+
+" Centering panning
+nnoremap <silent> <C-d> <C-d>zz
+nnoremap <silent> <C-u> <C-u>zz
 
 " " Vertical panning
 " nnoremap <silent> <leader>sc zz
@@ -122,12 +138,12 @@ vmap <silent> <leader>cs <plug>NERDCommenterSexy
 nnoremap <silent> <leader>la <cmd>Lspsaga code_action<cr>
 vnoremap <silent> <leader>la <cmd><C-U>Lspsaga range_code_action<cr>
 
-nnoremap <silent> K <cmd>Lspsaga hover_doc<cr>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<cr>
 " nnoremap <silent> gs <cmd>Lspsaga signature_help<cr>
 nnoremap <silent> <leader>ln <cmd>Lspsaga rename<cr>
 nnoremap <silent> <leader>lp <cmd>Lspsaga preview_definition<cr>
 
-nnoremap <silent> <leader>le <cmd>Lspsaga show_line_diagnostics<cr>
+nnoremap <silent> <leader>le <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
 
 " Telescope
 nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
@@ -136,6 +152,7 @@ nnoremap <silent> <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <silent> <leader>fm <cmd>Telescope man_pages<cr>
 nnoremap <silent> <leader>fr <cmd>Telescope lsp_references<cr>
 nnoremap <silent> <leader>fd <cmd>Telescope lsp_document_diagnostics<cr>
+nnoremap <silent> <leader>fs <cmd>Telescope lsp_document_symbols<cr>
 
 " Bufferline
 nnoremap <silent> <leader>bp :BufferLinePick<cr>

@@ -35,5 +35,5 @@ blankline.setup {
 }
 EOF
 
-let g:indentLine_fileTypeExclude = ['dashboard']
-let g:indent_blankline_use_treesitter = v:true
+" let g:indentLine_fileTypeExclude = ['dashboard']
+let g:indent_blankline_use_treesitter = v:false

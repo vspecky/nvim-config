@@ -31,6 +31,7 @@ source ~/.config/nvim/plugconf/sneak.vim
 " rnvimr config
 " source ~/.config/nvim/plugconf/rnvimr.vim
 
+
 " Colorscheme
 source ~/.config/nvim/other/colorscheme.vim
 
@@ -79,6 +80,9 @@ source ~/.config/nvim/plugconf/dap.vim
 " dap-ui
 source ~/.config/nvim/plugconf/dapui.vim
 
+" Nvim GPS
+source ~/.config/nvim/plugconf/gps.vim
+
 " lualine
 source ~/.config/nvim/plugconf/lualine.vim
 
@@ -105,6 +109,21 @@ source ~/.config/nvim/plugconf/numb.vim
 
 " Treesitter Context
 source ~/.config/nvim/plugconf/treesittercontext.vim
+
+" Twilight
+source ~/.config/nvim/plugconf/twilight.vim
+
+" Shade
+source ~/.config/nvim/plugconf/shade.vim
+
+" Venn
+source ~/.config/nvim/plugconf/venn.vim
+
+" Autosave
+source ~/.config/nvim/plugconf/autosave.vim
+
+" Transparent
+source ~/.config/nvim/plugconf/transparent.vim
 
 " Keybindings
 source ~/.config/nvim/other/keybindings.vim

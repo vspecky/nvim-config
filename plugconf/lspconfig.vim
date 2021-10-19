@@ -2,6 +2,7 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 local lspinstall = require('lspinstall')
 local aerial = require('aerial')
+-- local vtypes = require('virtualtypes')
 
 lspinstall.setup()
 
@@ -13,6 +14,7 @@ local on_attach = function(client, bufnr)
 
   require'completion'.on_attach(client, bufnr)
   aerial.on_attach(client)
+  -- vtypes.on_attach(client, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -94,6 +96,17 @@ function setup_servers()
 end
 
 setup_servers()
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        virtual_text = {
+            spacing = 3,
+            prefix = "",
+            update_on_insert = true
+        }
+    }
+)
 
 lspinstall.post_install_hook = function()
     setup_servers()

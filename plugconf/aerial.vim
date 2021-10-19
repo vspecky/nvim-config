@@ -4,7 +4,7 @@ vim.g.aerial = {
     min_width = 28,
     open_automatic = {
         ['_'] = false,
-        python = true
+        -- python = true
     },
     open_automatic_min_symbols = 20
 }

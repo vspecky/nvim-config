@@ -46,6 +46,9 @@ set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ Mono:h12
 
 " autocmd BufNewFile,BufRead *.md set expandtab
 autocmd BufNewFile,BufRead *.tsx set ts=2 sw=2
+autocmd BufNewFile,BufRead *.jsx set ts=2 sw=2
+autocmd BufNewFile,BufRead *.css set ts=4 sw=4
+autocmd BufNewFile,BufRead *.go ASOff
 autocmd FileType php setlocal autoindent
 
 lua << EOF

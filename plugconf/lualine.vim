@@ -1,5 +1,6 @@
 lua << EOF
 local status, lualine = pcall(require, "lualine")
+local gps = require('nvim-gps')
 if (not status) then return end
 
 lualine.setup {
@@ -13,7 +14,7 @@ lualine.setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
-    lualine_c = {{'filename', path = 1}},
+    lualine_c = {{'filename', path = 1}, {gps.get_location, condition = gps.is_available}},
     lualine_x = {
       { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
       'encoding',

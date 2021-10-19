@@ -56,7 +56,7 @@ wk.register({
             t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type definition"},
             n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
             r = {"<cmd>lua vim.lsp.buf.references()<cr>", "List references"},
-            e = {"<cmd>Lspsaga show_line_diagnostics<cr>", "List line diagnostics"},
+            e = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "List line diagnostics"},
             p = {"<cmd>Lspsaga preview_definition<cr>", "Preview definition"},
             a = {"<cmd>Lspsaga code_action<cr>", "Code action"},
             ['['] = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Goto previous diagnostic"},
@@ -99,7 +99,8 @@ wk.register({
             b = {"<cmd>Telescope buffers<cr>", "Search buffer"},
             m = {"<cmd>Telescope man_pages<cr>", "Search man pages"},
             r = {"<cmd>Telescope lsp_references<cr>", "Search lsp references"},
-            d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Search document diagnostics"}
+            d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Search document diagnostics"},
+            s = {"<cmd>Telescope lsp_document_symbols<cr>", "Search lsp symbols"}
         },
 
         -- Debugger
@@ -127,7 +128,8 @@ wk.register({
             r = {"<cmd>Rg<cr>", "Ripgrep"},
             t = {"<cmd>TroubleToggle<cr>", "Toggle trouble"},
             a = {"<cmd>AerialToggle!<cr>", "Toggle aerial"},
-            s = {"<cmd>SymbolsOutline<cr>", "Toggle symbols-outline"}
+            s = {"<cmd>SymbolsOutline<cr>", "Toggle symbols-outline"},
+            v = {"<cmd>lua toggle_venn()<cr>", "Toggle venn"}
         },
 
         -- Rest client

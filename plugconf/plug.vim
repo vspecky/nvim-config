@@ -35,7 +35,7 @@ call plug#begin()
     Plug 'kristijanhusak/vim-dadbod-ui'
     "Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lambdalisue/nerdfont.vim'
-    Plug 'fatih/vim-go'
+    " Plug 'fatih/vim-go'
     Plug 'vimwiki/vimwiki'
     Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
     Plug 'neovim/nvim-lspconfig'
@@ -65,4 +65,15 @@ call plug#begin()
     Plug 'NTBBloodbath/rest.nvim'
     Plug 'nacro90/numb.nvim'
     Plug 'romgrk/nvim-treesitter-context'
+    Plug 'sunjon/shade.nvim'
+    Plug 'folke/twilight.nvim'
+    " Plug 'liuchengxu/vista.vim'
+    " Plug 'jubnzv/virtual-types.nvim'
+    " Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make'}
+    Plug 'jbyuki/venn.nvim'
+    Plug 'SmiteshP/nvim-gps'
+    " Plug 'yamatsum/nvim-cursorline'
+    Plug 'xiyaowong/nvim-cursorword'
+    Plug 'Pocco81/AutoSave.nvim'
+    Plug 'xiyaowong/nvim-transparent'
 call plug#end()
