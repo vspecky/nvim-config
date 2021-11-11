@@ -49,6 +49,9 @@ autocmd BufNewFile,BufRead *.tsx set ts=2 sw=2
 autocmd BufNewFile,BufRead *.jsx set ts=2 sw=2
 autocmd BufNewFile,BufRead *.css set ts=4 sw=4
 autocmd BufNewFile,BufRead *.go ASOff
+autocmd BufNewFile,BufRead *.nvimd set virtualedit=all
+autocmd BufNewFile,BufRead *.nvimd lua toggle_venn()
+autocmd BufNewFile,BufRead *.nvimd set filetype=nvimd
 autocmd FileType php setlocal autoindent
 
 lua << EOF

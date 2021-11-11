@@ -17,7 +17,8 @@ blankline.setup {
         "dapui_stacks",
         "dapui_watches",
         "dap-repl",
-        "httpResult"
+        "httpResult",
+        "nvimd"
     },
     filetype_exclude = {
         "terminal",
@@ -30,7 +31,8 @@ blankline.setup {
         "dapui_stacks",
         "dapui_watches",
         "dap-repl",
-        "httpResult"
+        "httpResult",
+        "nvimd"
     }
 }
 EOF

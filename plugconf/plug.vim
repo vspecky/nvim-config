@@ -76,4 +76,6 @@ call plug#begin()
     Plug 'xiyaowong/nvim-cursorword'
     Plug 'Pocco81/AutoSave.nvim'
     Plug 'xiyaowong/nvim-transparent'
+    Plug 'sainnhe/gruvbox-material'
+    Plug 'lukas-reineke/format.nvim'
 call plug#end()

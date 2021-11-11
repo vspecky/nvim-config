@@ -125,5 +125,8 @@ source ~/.config/nvim/plugconf/autosave.vim
 " Transparent
 source ~/.config/nvim/plugconf/transparent.vim
 
+" Format.nvim
+source ~/.config/nvim/plugconf/format.vim
+
 " Keybindings
 source ~/.config/nvim/other/keybindings.vim
