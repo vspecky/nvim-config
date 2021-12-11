@@ -57,8 +57,8 @@ wk.register({
             n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
             r = {"<cmd>lua vim.lsp.buf.references()<cr>", "List references"},
             e = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "List line diagnostics"},
-            p = {"<cmd>Lspsaga preview_definition<cr>", "Preview definition"},
-            a = {"<cmd>Lspsaga code_action<cr>", "Code action"},
+            -- p = {"<cmd>Lspsaga preview_definition<cr>", "Preview definition"},
+            -- a = {"<cmd>Lspsaga code_action<cr>", "Code action"},
             ['['] = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Goto previous diagnostic"},
             [']'] = {"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", "Goto next diagnostic"},
 
@@ -66,7 +66,15 @@ wk.register({
                 name = "+Workspace",
                 a = {"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder"},
                 r = {"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder"},
-                l = {"<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders"}
+                l = {"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders"}
+            },
+
+            p = {
+                name = "+Preview",
+                d = {"<cmd>lua require('goto-preview').goto_preview_definition()<cr>", "Preview definition"},
+                i = {"<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "Preview implementation"},
+                r = {"<cmd>lua require('goto-preview').goto_preview_references()<cr>", "Preview references"},
+                q = {"<cmd>lua require('goto-preview').close_all_win()<cr>", "Close all previews"},
             }
         },
 
@@ -89,6 +97,19 @@ wk.register({
             ["{"] = {"<cmd>BufferLineMovePrev<cr>", "Move current buffer to left"},
             p = {"<cmd>BufferLinePick<cr>", "Pick buffer to switch"},
             d = {"<cmd>BufferLinePickClose<cr>", "Pick buffer to delete"}
+        },
+
+        -- Git
+        g = {
+            name = "+Git",
+            s = {"<cmd>Gitsigns stage_hunk<cr>", "Stage hunk"},
+            u = {"<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk"},
+            r = {"<cmd>Gitsigns reset_hunk<cr>", "Reset hunk"},
+            S = {"<cmd>Gitsigns stage_buffer<cr>", "Stage buffer"},
+            U = {"<cmd>Gitsigns reset_buffer_index<cr>", "Reset buffer index"},
+            R = {"<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"},
+            p = {"<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"},
+            b = {"<cmd>lua require'gitsigns'.blame_line{full=true}<cr>", "Line blame"},
         },
 
         -- Find
@@ -138,6 +159,14 @@ wk.register({
             r = {"<Plug>RestNvim", "Execute request"},
             p = {"<Plug>RestNvimPreview", "Preview curl command"},
             a = {"<Plug>RestNvimLast", "Re-run last request"}
+        },
+
+        -- Spectre
+        s = {
+            name = "+Replace",
+            s = {"<cmd>lua require('spectre').open()<cr>", "Search and replace"},
+            w = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search word"},
+            f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Search in file"}
         }
     }
 })

@@ -26,11 +26,10 @@ source ~/.config/nvim/plugconf/bufferline.vim
 "source ~/.config/nvim/plugconf/rust.vim
 
 " Vim Sneak Config
-source ~/.config/nvim/plugconf/sneak.vim
+" source ~/.config/nvim/plugconf/sneak.vim
 
 " rnvimr config
 " source ~/.config/nvim/plugconf/rnvimr.vim
-
 
 " Colorscheme
 source ~/.config/nvim/other/colorscheme.vim
@@ -63,7 +62,10 @@ source ~/.config/nvim/plugconf/pydocstring.vim
 source ~/.config/nvim/plugconf/lspconfig.vim
 
 " lspsaga
-source ~/.config/nvim/plugconf/lspsaga.vim
+" source ~/.config/nvim/plugconf/lspsaga.vim
+
+" Nvim Tree
+source ~/.config/nvim/plugconf/nvimtree.vim
 
 " Treesitter
 source ~/.config/nvim/plugconf/treesitter.vim
@@ -111,10 +113,10 @@ source ~/.config/nvim/plugconf/numb.vim
 source ~/.config/nvim/plugconf/treesittercontext.vim
 
 " Twilight
-source ~/.config/nvim/plugconf/twilight.vim
+" source ~/.config/nvim/plugconf/twilight.vim
 
 " Shade
-source ~/.config/nvim/plugconf/shade.vim
+" source ~/.config/nvim/plugconf/shade.vim
 
 " Venn
 source ~/.config/nvim/plugconf/venn.vim
@@ -127,6 +129,18 @@ source ~/.config/nvim/plugconf/transparent.vim
 
 " Format.nvim
 source ~/.config/nvim/plugconf/format.vim
+
+" Lightspeed
+source ~/.config/nvim/plugconf/lightspeed.vim
+
+" VGit
+" source ~/.config/nvim/plugconf/vgit.vim
+
+" Gitsigns
+source ~/.config/nvim/plugconf/gitsigns.vim
+
+" Goto Preview
+source ~/.config/nvim/plugconf/gotopreview.vim
 
 " Keybindings
 source ~/.config/nvim/other/keybindings.vim

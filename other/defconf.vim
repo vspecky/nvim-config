@@ -53,6 +53,7 @@ autocmd BufNewFile,BufRead *.nvimd set virtualedit=all
 autocmd BufNewFile,BufRead *.nvimd lua toggle_venn()
 autocmd BufNewFile,BufRead *.nvimd set filetype=nvimd
 autocmd FileType php setlocal autoindent
+autocmd FileType make setlocal noexpandtab
 
 lua << EOF
 vim.fn.sign_define("LspDiagnosticsSignError",

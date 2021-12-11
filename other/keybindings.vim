@@ -135,13 +135,13 @@ nmap <silent> <leader>cs <plug>NERDCommenterSexy
 vmap <silent> <leader>cs <plug>NERDCommenterSexy
 
 " Lspsaga
-nnoremap <silent> <leader>la <cmd>Lspsaga code_action<cr>
-vnoremap <silent> <leader>la <cmd><C-U>Lspsaga range_code_action<cr>
+" nnoremap <silent> <leader>la <cmd>Lspsaga code_action<cr>
+" vnoremap <silent> <leader>la <cmd><C-U>Lspsaga range_code_action<cr>
 
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<cr>
 " nnoremap <silent> gs <cmd>Lspsaga signature_help<cr>
-nnoremap <silent> <leader>ln <cmd>Lspsaga rename<cr>
-nnoremap <silent> <leader>lp <cmd>Lspsaga preview_definition<cr>
+" nnoremap <silent> <leader>ln <cmd>Lspsaga rename<cr>
+" nnoremap <silent> <leader>lp <cmd>Lspsaga preview_definition<cr>
 
 nnoremap <silent> <leader>le <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
 
@@ -210,6 +210,27 @@ autocmd FileType python nnoremap <silent> <leader>cd <cmd>Pydocstring<cr>
 nnoremap <silent> <leader>rr <Plug>RestNvim
 nnoremap <silent> <leader>rp <Plug>RestNvimPreview
 nnoremap <silent> <leader>ra <Plug>RestNvimLast
+
+" Spectre
+nnoremap <silent> <leader>ss <cmd>lua require('spectre').open()<cr>
+nnoremap <silent> <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<cr>
+nnoremap <silent> <leader>sf <cmd>lua require('spectre').open_file_search()<cr>
+
+" Goto preview
+nnoremap <silent> <leader>lpd <cmd>lua require('goto-preview').goto_preview_definition()<cr>
+nnoremap <silent> <leader>lpi <cmd>lua require('goto-preview').goto_preview_implementation()<cr>
+nnoremap <silent> <leader>lpr <cmd>lua require('goto-preview').goto_preview_references()<cr>
+nnoremap <silent> <leader>lpq <cmd>lua require('goto-preview').close_all_win()<cr>
+
+" Gitsigns
+nnoremap <silent> <leader>gs <cmd>Gitsigns stage_hunk<cr>
+nnoremap <silent> <leader>gu <cmd>Gitsigns undo_stage_hunk<cr>
+nnoremap <silent> <leader>gr <cmd>Gitsigns reset_hunk<cr>
+nnoremap <silent> <leader>gS <cmd>Gitsigns stage_buffer<cr>
+nnoremap <silent> <leader>gU <cmd>Gitsigns reset_buffer_index<cr>
+nnoremap <silent> <leader>gR <cmd>Gitsigns reset_buffer<cr>
+nnoremap <silent> <leader>gp <cmd>Gitsigns preview_hunk<cr>
+nnoremap <silent> <leader>gb <cmd>lua require'gitsigns'.blame_line{full=true}<cr>
 
 "" lightline-bufferline
 "nmap <silent> <leader>b1 <Plug>lightline#bufferline#go(1)

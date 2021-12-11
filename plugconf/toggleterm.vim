@@ -3,6 +3,7 @@ toggleterm = require('toggleterm')
 
 toggleterm.setup {
     size = 20,
+    shading_factor = 2,
     direction = 'horizontal',
     close_on_exit = true
 }

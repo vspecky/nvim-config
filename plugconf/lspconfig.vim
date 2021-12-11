@@ -2,9 +2,55 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 local lspinstall = require('lspinstall')
 local aerial = require('aerial')
+local cmp = require('cmp')
+-- local coq = require('coq')
 -- local vtypes = require('virtualtypes')
 
 lspinstall.setup()
+
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end
+    },
+
+    mapping = {
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close()
+        }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    },
+
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        { name = 'buffer' },
+        { name = 'path' }
+    }
+})
+
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -12,7 +58,7 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  require'completion'.on_attach(client, bufnr)
+  -- require'completion'.on_attach(client, bufnr)
   aerial.on_attach(client)
   -- vtypes.on_attach(client, bufnr)
 
@@ -86,16 +132,18 @@ end
 function setup_servers()
     local servers = lspinstall.installed_servers()
     for _, lsp in ipairs(servers) do
-      nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-          debounce_text_changes = 150,
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {
+              debounce_text_changes = 150,
+            }
         }
-      }
     end
 end
 
 setup_servers()
+-- vim.cmd("COQnow -s")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -112,4 +160,7 @@ lspinstall.post_install_hook = function()
     setup_servers()
     vim.cmd("bufdo e")
 end
+
 EOF
+
+set completeopt=menu,menuone,noselect
