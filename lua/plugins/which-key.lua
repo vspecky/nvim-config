@@ -1,5 +1,6 @@
-lua << EOF
-local wk = require('which-key')
+local wk = require 'which-key'
+
+vim.g.mapleader = " "
 
 wk.setup {
 
@@ -57,6 +58,7 @@ wk.register({
             n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
             r = {"<cmd>lua vim.lsp.buf.references()<cr>", "List references"},
             e = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "List line diagnostics"},
+            k = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Lsp Hover"},
             -- p = {"<cmd>Lspsaga preview_definition<cr>", "Preview definition"},
             -- a = {"<cmd>Lspsaga code_action<cr>", "Code action"},
             ['['] = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Goto previous diagnostic"},
@@ -110,6 +112,7 @@ wk.register({
             R = {"<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"},
             p = {"<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"},
             b = {"<cmd>lua require'gitsigns'.blame_line{full=true}<cr>", "Line blame"},
+            d = {"<cmd>call ToggleDiffView(v:count)<cr>", "Toggle diff view"},
         },
 
         -- Find
@@ -145,7 +148,7 @@ wk.register({
         -- Open
         o = {
             name = "+Open",
-            e = {"<cmd>NvimTreeToggle<cr>", "Toggle nvimtree"},
+            e = {":NvimTreeToggle<cr>", "Toggle nvimtree"},
             r = {"<cmd>Rg<cr>", "Ripgrep"},
             t = {"<cmd>TroubleToggle<cr>", "Toggle trouble"},
             a = {"<cmd>AerialToggle!<cr>", "Toggle aerial"},
@@ -170,4 +173,3 @@ wk.register({
         }
     }
 })
-EOF

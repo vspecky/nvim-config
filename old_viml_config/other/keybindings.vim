@@ -30,10 +30,10 @@ nmap <silent> <C-left> <cmd>vertical resize -1<cr>
 nmap <silent> <C-right> <cmd>vertical resize +1<cr>
 
 " Window switching
-nmap <silent> <left> <cmd>wincmd h<cr>
-nmap <silent> <down> <cmd>wincmd j<cr>
-nmap <silent> <up> <cmd>wincmd k<cr>
-nmap <silent> <right> <cmd>wincmd l<cr>
+nmap <silent> H <cmd>wincmd h<cr>
+nmap <silent> J <cmd>wincmd j<cr>
+nmap <silent> K <cmd>wincmd k<cr>
+nmap <silent> L <cmd>wincmd l<cr>
 
 " Tabbing
 nnoremap <silent> <leader>tn :tabnew<space>
@@ -138,7 +138,7 @@ vmap <silent> <leader>cs <plug>NERDCommenterSexy
 " nnoremap <silent> <leader>la <cmd>Lspsaga code_action<cr>
 " vnoremap <silent> <leader>la <cmd><C-U>Lspsaga range_code_action<cr>
 
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <silent> <leader>lk <cmd>lua vim.lsp.buf.hover()<cr>
 " nnoremap <silent> gs <cmd>Lspsaga signature_help<cr>
 " nnoremap <silent> <leader>ln <cmd>Lspsaga rename<cr>
 " nnoremap <silent> <leader>lp <cmd>Lspsaga preview_definition<cr>
@@ -160,6 +160,8 @@ nnoremap <silent> <leader>bd :BufferLinePickClose<cr>
 
 nnoremap <silent> <leader>b] :BufferLineCycleNext<cr>
 nnoremap <silent> <leader>b[ :BufferLineCyclePrev<cr>
+nnoremap <silent> <right> :BufferLineCycleNext<cr>
+nnoremap <silent> <left> :BufferLineCyclePrev<cr>
 
 nnoremap <silent> <leader>b} :BufferLineMoveNext<cr>
 nnoremap <silent> <leader>b{ :BufferLineMovePrev<cr>
@@ -231,6 +233,24 @@ nnoremap <silent> <leader>gU <cmd>Gitsigns reset_buffer_index<cr>
 nnoremap <silent> <leader>gR <cmd>Gitsigns reset_buffer<cr>
 nnoremap <silent> <leader>gp <cmd>Gitsigns preview_hunk<cr>
 nnoremap <silent> <leader>gb <cmd>lua require'gitsigns'.blame_line{full=true}<cr>
+
+" Diffview
+nnoremap <silent> <leader>gd <cmd>call ToggleDiffView(v:count)<cr>
+
+let g:diffview_is_open = 0
+function! ToggleDiffView(cnt)
+    if g:diffview_is_open == 0
+        let g:diffview_is_open = 1
+        if a:cnt == 0
+            DiffviewOpen
+        else
+            execute 'DiffviewOpen' 'HEAD~' .. a:cnt
+        endif
+    else
+        let g:diffview_is_open = 0
+        DiffviewClose
+    endif
+endfunction
 
 "" lightline-bufferline
 "nmap <silent> <leader>b1 <Plug>lightline#bufferline#go(1)

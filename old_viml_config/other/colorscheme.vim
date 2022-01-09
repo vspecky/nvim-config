@@ -9,7 +9,12 @@ set background=dark
 " GRUVBOX Material
 let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_enable_bold = 1
 colorscheme gruvbox-material
+
+let g:Illuminate_delay = 200
+
+let g:Illuminate_ftblacklist = ["terminal", "aerial", "dashboard", "NvimTree", "help", "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches", "dap-repl", "httpResult", "nvimd"]
 
 " DRACULA
 "let g:dracula_colorterm = 2
@@ -43,8 +48,13 @@ hi SignColumn guibg=none ctermbg=none
 " hi EndOfBuffer guibg=none ctermbg=none
 " hi Cursor guifg=black ctermfg=black
 
+" hi def link LspReferenceText CursorLine
+" hi def link LspReferenceWrite CursorLine
+" hi def link LspReferenceRead CursorLine
+" hi link illuminatedWord Visual
+
 " unlet g:cursorword_highlight
-hi! CursorWord cterm=bold gui=bold
+" hi! CursorWord cterm=bold gui=bold
 
 "highlight Normal ctermbg=NONE guibg=NONE
 "highlight NonText ctermbg=NONE guibg=NONE

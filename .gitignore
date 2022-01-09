@@ -2,3 +2,4 @@ autoload
 plugged
 undodir
 sessions
+runtime

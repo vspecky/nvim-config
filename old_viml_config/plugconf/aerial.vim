@@ -1,5 +1,7 @@
 lua << EOF
-vim.g.aerial = {
+local aerial = require("aerial")
+
+aerial.setup {
     default_direction = "left",
     min_width = 28,
     open_automatic = {

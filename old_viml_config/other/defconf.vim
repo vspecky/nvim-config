@@ -55,6 +55,8 @@ autocmd BufNewFile,BufRead *.nvimd set filetype=nvimd
 autocmd FileType php setlocal autoindent
 autocmd FileType make setlocal noexpandtab
 
+let g:autotype_speed = 50
+
 lua << EOF
 vim.fn.sign_define("LspDiagnosticsSignError",
     {text = "", texthl = "GruvboxRed"})

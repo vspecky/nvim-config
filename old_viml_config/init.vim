@@ -142,5 +142,11 @@ source ~/.config/nvim/plugconf/gitsigns.vim
 " Goto Preview
 source ~/.config/nvim/plugconf/gotopreview.vim
 
+" Diffview
+source ~/.config/nvim/plugconf/diffview.vim
+
+" Marks
+source ~/.config/nvim/plugconf/marks.vim
+
 " Keybindings
 source ~/.config/nvim/other/keybindings.vim
