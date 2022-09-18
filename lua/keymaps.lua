@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+local M = {}
+
 local nnoremap = function(lhs, rhs)
     vim.api.nvim_set_keymap('n', lhs, rhs, {noremap = true, silent = true})
 end
@@ -112,6 +114,9 @@ vmap("<leader>cs", "<plug>NERDCommenterSexy")
 nnoremap("<leader>lk", "<cmd>lua vim.lsp.buf.hover()<cr>")
 nnoremap("<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>")
 
+-- Format
+nnoremap("<leader>lf", "<cmd>Format<cr>")
+
 -- Telescope
 nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
@@ -134,8 +139,8 @@ nnoremap("<leader>b}", ":BufferLineMoveNext<cr>")
 nnoremap("<leader>b{", ":BufferLineMovePrev<cr>")
 
 -- Toggleterm
-nnoremap("c-t>", "<Cmd>exe v:count1 . \"ToggleTerm dir=.\"<CR>")
-tnoremap("c-t>", "<Esc><Cmd>exe v:count1 . \"ToggleTerm dir=.\"<CR>")
+nnoremap("<c-t>", "<Cmd>exe v:count1 . \"ToggleTerm dir=.\"<CR>")
+tnoremap("<c-t>", "<Esc><Cmd>exe v:count1 . \"ToggleTerm dir=.\"<CR>")
 
 -- Trouble
 nnoremap("<leader>ot", "<cmd>TroubleToggle<cr>")
@@ -170,6 +175,9 @@ nnoremap("<leader>dus", "<cmd>lua require'dapui'.toggle('sidebar')<cr>")
 -- Symbols Outline
 nnoremap("<leader>os", "<cmd>SymbolsOutline<cr>")
 
+-- Broot
+nnoremap("<leader>ob", "<cmd>Broot<cr>")
+
 -- Pydocstring
 vim.cmd [[ autocmd FileType python nnoremap <silent> <leader>cd <cmd>Pydocstring<cr> ]]
 
@@ -202,7 +210,7 @@ nnoremap("<leader>gb", "<cmd>lua require'gitsigns'.blame_line{full=true}<cr>")
 -- Diffview
 local diffview_open = false
 
-function ToggleDiffView(cnt)
+local function toggle_diffview(cnt)
     if not diffview_open then
         diffview_open = true
         if cnt == 0 then
@@ -216,5 +224,7 @@ function ToggleDiffView(cnt)
     end
 end
 
-nnoremap("<leader>gd", "<cmd>lua ToggleDiffView(vim.v.count)<cr>")
+nnoremap("<leader>gd", "<cmd>lua require'keymaps'.toggle_diffview(vim.v.count)<cr>")
 
+M.toggle_diffview = toggle_diffview
+return M

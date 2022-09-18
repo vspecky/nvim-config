@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
+--local lsp_installer = require('nvim-lsp-installer')
 local illuminate = require('illuminate')
 local aerial = require('aerial')
 local cmp = require('cmp')
@@ -26,6 +26,7 @@ cmp.setup({
 
     sources = {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'vsnip' },
         { name = 'buffer' },
         { name = 'path' }
@@ -125,44 +126,72 @@ local on_attach = function(client, bufnr)
 
 end
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = 150
-        }
-    }
+nvim_lsp.hls.setup {
+    cmd = {"haskell-language-server-wrapper", "--lsp"},
+    filetypes = {"haskell", "lhaskell"},
+    single_file_support = true
+}
 
-    if server.name == "sumneko_lua" then
-        local runtime_path = vim.split(package.path, ';')
-        table.insert(runtime_path, "lua/?.lua")
-        table.insert(runtime_path, "lua/?/init.lua")
-
-        opts.settings = {
-            Lua = {
-                runtime = {
-                    version = "LuaJIT",
-                    path = runtime_path
-                },
-
-                diagnostics = {
-                    globals = {'vim'}
-                },
-
-                workspace = {
-                    library = vim.api.nvim_get_runtime_file("", true)
-                },
-
-                telemetry = {
-                    enable = false
-                }
+nvim_lsp.pyright.setup {
+    cmd = {"pyright-langserver", "--stdio"},
+    filetypes = {"python"},
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true
             }
         }
-    end
+    },
+    single_file_support = true
+}
 
-    server:setup(opts)
-end)
+--lsp_installer.on_server_ready(function(server)
+    --local opts = {
+        --on_attach = on_attach,
+        --capabilities = capabilities,
+        --flags = {
+            --debounce_text_changes = 150
+        --}
+    --}
+
+    --if server.name == "sumneko_lua" then
+        --local runtime_path = vim.split(package.path, ';')
+        --table.insert(runtime_path, "lua/?.lua")
+        --table.insert(runtime_path, "lua/?/init.lua")
+
+        --opts.settings = {
+            --Lua = {
+                --runtime = {
+                    --version = "LuaJIT",
+                    --path = runtime_path
+                --},
+
+                --diagnostics = {
+                    --globals = {'vim'}
+                --},
+
+                --telemetry = {
+                    --enable = false
+                --}
+            --}
+        --}
+    --end
+
+    --if server.name == "yamlls" then
+        --opts.settings = {
+            --yaml = {
+                --schemas = {
+                    --["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                    --["https://json.schemastore.org/pre-commit-config.json"] = "/.pre-commit-config.yaml"
+                --}
+            --}
+        --}
+    --end
+
+    --server:setup(opts)
+--end)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -174,4 +203,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         }
     }
 )
-

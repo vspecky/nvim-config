@@ -1,4 +1,4 @@
-local format = require("format")
+local format = require("lsp-format")
 
 format.setup {
     go = {

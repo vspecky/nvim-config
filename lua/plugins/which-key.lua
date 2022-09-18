@@ -63,6 +63,7 @@ wk.register({
             -- a = {"<cmd>Lspsaga code_action<cr>", "Code action"},
             ['['] = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Goto previous diagnostic"},
             [']'] = {"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", "Goto next diagnostic"},
+            f = {"<cmd>Format<cr>", "Format current buffer"},
 
             w = {
                 name = "+Workspace",
@@ -112,7 +113,7 @@ wk.register({
             R = {"<cmd>Gitsigns reset_buffer<cr>", "Reset buffer"},
             p = {"<cmd>Gitsigns preview_hunk<cr>", "Preview hunk"},
             b = {"<cmd>lua require'gitsigns'.blame_line{full=true}<cr>", "Line blame"},
-            d = {"<cmd>call ToggleDiffView(v:count)<cr>", "Toggle diff view"},
+            d = {"<cmd>lua require'keymaps'.toggle_diffview(vim.v.count)<cr>", "Toggle diff view"},
         },
 
         -- Find
@@ -153,7 +154,8 @@ wk.register({
             t = {"<cmd>TroubleToggle<cr>", "Toggle trouble"},
             a = {"<cmd>AerialToggle!<cr>", "Toggle aerial"},
             s = {"<cmd>SymbolsOutline<cr>", "Toggle symbols-outline"},
-            v = {"<cmd>lua toggle_venn()<cr>", "Toggle venn"}
+            v = {"<cmd>lua toggle_venn()<cr>", "Toggle venn"},
+            b = {"<cmd>Broot<cr>", "Open broot"}
         },
 
         -- Rest client

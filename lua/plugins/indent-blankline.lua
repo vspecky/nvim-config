@@ -17,7 +17,9 @@ blankline.setup {
         "dapui_watches",
         "dap-repl",
         "httpResult",
-        "nvimd"
+        "nvimd",
+        "w3m",
+        "haskell"
     },
     filetype_exclude = {
         "terminal",
@@ -31,7 +33,9 @@ blankline.setup {
         "dapui_watches",
         "dap-repl",
         "httpResult",
-        "nvimd"
+        "nvimd",
+        "w3m",
+        "haskell"
     }
 }
 

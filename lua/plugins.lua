@@ -1,5 +1,5 @@
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd("packadd packer.nvim")
 
 local packer = require 'packer'
 
@@ -9,6 +9,9 @@ return packer.startup(function(use)
     -- UI utilities
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
+
+    -- W3m browser
+    use 'yuratomo/w3m.vim'
 
     -- Devicons
     use 'kyazdani42/nvim-web-devicons'
@@ -52,6 +55,14 @@ return packer.startup(function(use)
     -- Vimwiki
     use 'vimwiki/vimwiki'
 
+    -- Transparent Neovim
+    --use {
+        --'xiyaowong/nvim-transparent',
+        --config = function()
+            --require "plugins/transparent"
+        --end
+    --}
+
     -- Pydocstring support
     use {
         'heavenshell/vim-pydocstring',
@@ -70,10 +81,27 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/nvim-cmp'
 
     -- LSP Installer
-    use 'williamboman/nvim-lsp-installer'
+    --use 'williamboman/nvim-lsp-installer'
+
+    -- Mason.nvim
+    use {
+        'williamboman/mason.nvim',
+        config = function()
+            require "plugins/mason"
+        end
+    }
+
+    -- Mason-lspconfig.nvim
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        config = function()
+            require "plugins/mason_lspconfig"
+        end
+    }
 
     -- Highlight similar textobjects
     use 'RRethy/vim-illuminate'
@@ -86,11 +114,28 @@ return packer.startup(function(use)
         end
     }
 
+    -- Formatter
+    use {
+        'mhartington/formatter.nvim',
+        config = function()
+            require "plugins/formatter"
+        end
+    }
+
+    -- LSP signature help
+    use {
+        'ray-x/lsp_signature.nvim',
+        config = function()
+            require "plugins/lspsignature"
+        end
+    }
+
     -- Neovim LSP Configuration
     use {
         'neovim/nvim-lspconfig',
         requires = {
-            "williamboman/nvim-lsp-installer",
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
             "stevearc/aerial.nvim",
             "RRethy/vim-illuminate"
         },
@@ -99,10 +144,18 @@ return packer.startup(function(use)
         end
     }
 
+    -- LSP Colors
+    use {
+        'folke/lsp-colors.nvim',
+        config = function()
+            require "plugins/lspcolors"
+        end
+    }
+
     use {
         'nvim-treesitter/nvim-treesitter',
         config = function()
-            require "plugins/nvim-tree"
+            require "plugins/treesitter"
         end
     }
 
@@ -111,6 +164,15 @@ return packer.startup(function(use)
 
     -- Nvim GPS
     use 'SmiteshP/nvim-gps'
+
+    -- WinBar
+    --use {
+        --'fgheng/winbar.nvim',
+        --requires = {'SmiteshP/nvim-gps'},
+        --config = function()
+            --require "plugins/winbar"
+        --end
+    --}
 
     -- Lualine
     use {
@@ -141,7 +203,11 @@ return packer.startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         config = function()
-            require('nvim-tree').setup{}
+            require('nvim-tree').setup{
+                git = {
+                    ignore = false
+                }
+            }
         end
     }
 
@@ -175,13 +241,18 @@ return packer.startup(function(use)
     -- LSP Symbols outline
     use {
         'simrat39/symbols-outline.nvim',
-        config = function()
-            vim.g.symbols_outline = {}
+        setup = function()
+            vim.g.symbols_outline = {
+                highlight_hovered_item = false,
+                relative_width = true,
+                width = 25,
+                show_numbers = true
+            }
         end
     }
 
     -- Neovim Dashboard
-    use 'glepnir/dashboard-nvim'
+    --use 'glepnir/dashboard-nvim'
 
     -- Indentation hints
     use {
@@ -232,12 +303,12 @@ return packer.startup(function(use)
     }
 
     -- Scope context display
-    use {
-        'romgrk/nvim-treesitter-context',
-        config = function()
-            require "plugins/treesitter-context"
-        end
-    }
+    --use {
+        --'romgrk/nvim-treesitter-context',
+        --config = function()
+            --require "plugins/treesitter-context"
+        --end
+    --}
 
     -- Venn diagram tools
     use {
@@ -257,7 +328,7 @@ return packer.startup(function(use)
 
     -- Autoformat files
     use {
-        'lukas-reineke/format.nvim',
+        'lukas-reineke/lsp-format.nvim',
         config = function()
             require "plugins/format"
         end
@@ -316,9 +387,30 @@ return packer.startup(function(use)
 
     -- Display marks in Sign Column
     use {
-        'chentau/marks.nvim',
+        'chentoast/marks.nvim',
         config = function()
             require "plugins/marks"
         end
     }
+
+    use {
+        'is0n/fm-nvim',
+        config = function()
+            require 'plugins/fm'
+        end
+    }
+
+    -- Purescript
+    use 'purescript-contrib/purescript-vim'
+
+    -- Rust tools
+    use {
+        'simrat39/rust-tools.nvim',
+        config = function()
+            require 'plugins/rusttools'
+        end
+    }
+
+    -- Haskell indentation
+    use 'itchyny/vim-haskell-indent'
 end)

@@ -20,7 +20,7 @@ opt.smartindent = true
 opt.wrap = false
 
 -- Undo
-opt.undodir = "$HOME/.config/nvim/undodir"
+opt.undodir = vim.fn.expand("$HOME") .. "/.config/nvim/undodir"
 opt.undofile = true
 
 -- No backup for speed
@@ -64,7 +64,9 @@ opt.guifont = "Hack Regular Nerd Font Complete Mono:h12"
 cmd [[
     autocmd BufNewFile,BufRead *.tsx set ts=2 sw=2
     autocmd BufNewFile,BufRead *.jsx set ts=2 sw=2
+    autocmd BufNewFile,BufRead *.purs set ts=2 sw=2
     autocmd BufNewFile,BufRead *.css set ts=4 sw=4
+    autocmd BufNewFile,BufRead *.hs set ts=2 sw=2
     autocmd BufNewFile,BufRead *.go ASOff
     autocmd BufNewFile,BufRead *.nvimd set virtualedit=all
     autocmd BufNewFile,BufRead *.nvimd lua toggle_venn()
