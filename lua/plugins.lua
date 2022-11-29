@@ -19,20 +19,20 @@ return packer.startup(function(use)
     -- WebAPI
     use 'mattn/webapi-vim'
 
-    -- Original gruvbox theme
+    -- Theme utils
+    use 'rktjmp/lush.nvim'
+
+    -- Themes
     use 'morhetz/gruvbox'
-
-    -- Gruvbox material theme
     use 'sainnhe/gruvbox-material'
-
-    -- Ayu theme
     use 'ayu-theme/ayu-vim'
-
-    -- Dracula theme
     use {'dracula/vim', as = 'dracula'}
-
-    -- Codedark theme
     use 'tomasiser/vim-code-dark'
+    use 'shaunsingh/moonlight.nvim'
+    use 'rebelot/kanagawa.nvim'
+    use 'kdheepak/monochrome.nvim'
+    use 'kvrohit/mellow.nvim'
+    use 'mcchrish/zenbones.nvim'
 
     -- NERDCommenter for Commenting
     use 'preservim/nerdcommenter'
@@ -144,6 +144,14 @@ return packer.startup(function(use)
         end
     }
 
+    -- Nvim navic (Context info in winbar)
+    use {
+        'SmiteshP/nvim-navic',
+        config = function()
+            require "plugins/navic"
+        end
+    }
+
     -- LSP Colors
     use {
         'folke/lsp-colors.nvim',
@@ -159,8 +167,22 @@ return packer.startup(function(use)
         end
     }
 
+    -- Persisted Session Manager
+    use {
+        'olimorris/persisted.nvim',
+        config = function()
+            require "plugins/persisted"
+        end
+    }
+
     -- Telescope
-    use 'nvim-telescope/telescope.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            local telescope = require "telescope"
+            telescope.load_extension("persisted")
+        end
+    }
 
     -- Nvim GPS
     use 'SmiteshP/nvim-gps'
@@ -224,6 +246,7 @@ return packer.startup(function(use)
         'mfussenegger/nvim-dap',
         config = function()
             require "plugins/dap"
+            require "dbg/rust"
         end
     }
 
@@ -237,6 +260,9 @@ return packer.startup(function(use)
             require "plugins/dap-ui"
         end
     }
+
+    -- DAPInstall
+    use 'xbc5/DAPInstall.nvim'
 
     -- LSP Symbols outline
     use {
@@ -320,7 +346,7 @@ return packer.startup(function(use)
 
     -- Autosave files
     use {
-        'Pocco81/AutoSave.nvim',
+        'Pocco81/auto-save.nvim',
         config = function()
             require "plugins/autosave"
         end
@@ -413,4 +439,7 @@ return packer.startup(function(use)
 
     -- Haskell indentation
     use 'itchyny/vim-haskell-indent'
+
+    -- Glow.nvim (Markdown preview)
+    use 'ellisonleao/glow.nvim'
 end)

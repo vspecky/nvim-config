@@ -1,9 +1,22 @@
-local autosave = require 'autosave'
+local autosave = require 'auto-save'
+local utils = require 'auto-save.utils.data'
 
 autosave.setup {
-    clean_command_line_interval = 500,
-    on_off_commands = true,
-    filetype_is_not = {
-        "go"
-    }
+    enabled = true,
+    trigger_events = {"InsertLeave"},
+    condition = function(buf)
+        local fn = vim.fn
+        if
+            fn.getbufvar(buf, "&modifiable") == 1 and
+            utils.not_in(
+                fn.getbufvar(buf, "&filetype"),
+                {
+                }
+            )
+        then
+            return true
+        end
+
+        return false
+    end
 }

@@ -42,6 +42,9 @@ opt.mouse = "a"
 -- Support hidden windows
 opt.hidden = true
 
+-- Shell
+opt.shell = "/bin/zsh"
+
 -- Colorscheme
 opt.termguicolors = true
 opt.background = "dark"
@@ -79,3 +82,5 @@ fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "GruvboxRed"})
 fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "GruvboxYellow"})
 fn.sign_define("LspDiagnosticsSignInformation", {text = "", texthl = "GruvboxBlue"})
 fn.sign_define("LspDiagnosticsSignHint", {text = "", texthl = "GruvboxAqua"})
+
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

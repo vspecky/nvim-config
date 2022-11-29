@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local navic = require "nvim-navic"
 --local lsp_installer = require('nvim-lsp-installer')
 local illuminate = require('illuminate')
 local aerial = require('aerial')
@@ -60,6 +61,11 @@ local on_attach = function(client, bufnr)
     aerial.on_attach(client)
     illuminate.on_attach(client)
     -- vtypes.on_attach(client, bufnr)
+
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+    --navic.attach(client, bufnr)
 
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -127,12 +133,15 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.hls.setup {
+    on_attach = on_attach,
     cmd = {"haskell-language-server-wrapper", "--lsp"},
     filetypes = {"haskell", "lhaskell"},
-    single_file_support = true
+    single_file_support = true,
+    --root_dir = function(_) return "." end
 }
 
 nvim_lsp.pyright.setup {
+    on_attach = on_attach,
     cmd = {"pyright-langserver", "--stdio"},
     filetypes = {"python"},
     settings = {
@@ -146,6 +155,27 @@ nvim_lsp.pyright.setup {
     },
     single_file_support = true
 }
+
+nvim_lsp.purescriptls.setup {
+    on_attach = on_attach,
+    cmd = {"purescript-language-server", "--stdio"},
+    filetypes = {"purescript"},
+    single_file_support = true
+}
+
+--nvim_lsp.rust_analyzer.setup {
+    --on_attach = on_attach,
+    --settings = {
+        --["rust-analyzer"] = {
+            --procMacro = {
+                --enable = true
+            --},
+            --cargo = {
+                --features = "all"
+            --}
+        --}
+    --}
+--}
 
 --lsp_installer.on_server_ready(function(server)
     --local opts = {
@@ -203,3 +233,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         }
     }
 )
+
+return {
+    on_attach = on_attach
+}

@@ -5,7 +5,7 @@ if (not status) then return end
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = 'gruvbox',
+        theme = 'auto',
         section_separators = {'', ''},
         component_separators = {'', ''},
         disabled_filetypes = {}
@@ -29,7 +29,7 @@ lualine.setup {
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
+        lualine_c = {{'filename', path = 1}, {gps.get_location, condition = gps.is_available}},
         lualine_x = {'location'},
         lualine_y = {},
         lualine_z = {}

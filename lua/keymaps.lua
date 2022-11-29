@@ -112,7 +112,7 @@ vmap("<leader>cs", "<plug>NERDCommenterSexy")
 
 -- Lsp
 nnoremap("<leader>lk", "<cmd>lua vim.lsp.buf.hover()<cr>")
-nnoremap("<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>")
+nnoremap("<leader>le", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
 -- Format
 nnoremap("<leader>lf", "<cmd>Format<cr>")
@@ -130,13 +130,13 @@ nnoremap("<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
 nnoremap("<leader>bp", ":BufferLinePick<cr>")
 nnoremap("<leader>bd", ":BufferLinePickClose<cr>")
 
-nnoremap("<leader>b]", ":BufferLineCycleNext<cr>")
-nnoremap("<leader>b[", ":BufferLineCyclePrev<cr>")
-nnoremap("<right>", ":BufferLineCycleNext<cr>")
-nnoremap("<left>", ":BufferLineCyclePrev<cr>")
+nnoremap("<leader>b]", "<cmd>BufferLineCycleNext<cr>")
+nnoremap("<leader>b[", "<cmd>BufferLineCyclePrev<cr>")
+nnoremap("<right>", "<cmd>BufferLineCycleNext<cr>")
+nnoremap("<left>", "<cmd>BufferLineCyclePrev<cr>")
 
-nnoremap("<leader>b}", ":BufferLineMoveNext<cr>")
-nnoremap("<leader>b{", ":BufferLineMovePrev<cr>")
+nnoremap("<leader>b}", "<cmd>BufferLineMoveNext<cr>")
+nnoremap("<leader>b{", "<cmd>BufferLineMovePrev<cr>")
 
 -- Toggleterm
 nnoremap("<c-t>", "<Cmd>exe v:count1 . \"ToggleTerm dir=.\"<CR>")
