@@ -114,6 +114,9 @@ vmap("<leader>cs", "<plug>NERDCommenterSexy")
 nnoremap("<leader>lk", "<cmd>lua vim.lsp.buf.hover()<cr>")
 nnoremap("<leader>le", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
+-- Lsp_lines
+nnoremap("<leader>ll", "<cmd>lua require'myutils/lsp_lines'.lsp_lines_toggle()<cr>")
+
 -- Format
 nnoremap("<leader>lf", "<cmd>Format<cr>")
 

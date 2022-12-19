@@ -1,3 +1,4 @@
+local lspkind = require "lspkind"
 local nvim_lsp = require('lspconfig')
 local navic = require "nvim-navic"
 --local lsp_installer = require('nvim-lsp-installer')
@@ -6,6 +7,17 @@ local aerial = require('aerial')
 local cmp = require('cmp')
 
 cmp.setup({
+    experimental = {
+        ghost_text = true
+    },
+
+    formatting = {
+        format = lspkind.cmp_format {
+            maxwidth = 45,
+            ellipsis_char = "..."
+        }
+    },
+
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -163,6 +175,13 @@ nvim_lsp.purescriptls.setup {
     single_file_support = true
 }
 
+nvim_lsp.tsserver.setup {
+    on_attach = on_attach,
+    cmd = {"typescript-language-server", "--stdio"},
+    filetypes = {"javascript", "typescript"},
+    single_file_support = true
+}
+
 --nvim_lsp.rust_analyzer.setup {
     --on_attach = on_attach,
     --settings = {
@@ -223,16 +242,7 @@ nvim_lsp.purescriptls.setup {
     --server:setup(opts)
 --end)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = {
-            spacing = 3,
-            prefix = "",
-            update_on_insert = true
-        }
-    }
-)
+vim.diagnostic.config { virtual_lines = false }
 
 return {
     on_attach = on_attach

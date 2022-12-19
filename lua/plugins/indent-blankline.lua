@@ -1,10 +1,15 @@
 local blankline = require 'indent_blankline'
-vim.opt.listchars = {
-    eol = "↴",
-}
+
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+vim.cmd [[ hi IndentBlankLineCtx guifg=#fabd2f gui=nocombine ]]
+--vim.cmd [[ hi IndentBlankLineContextStart guifg=#fabd2f gui=nocombine ]]
 
 blankline.setup {
-    show_end_of_line = true,
+    space_char_blankline = " ",
+    show_end_of_line = false,
     buftype_exclude = {
         "terminal",
         "aerial",
@@ -36,7 +41,7 @@ blankline.setup {
         "nvimd",
         "w3m",
         "haskell"
-    }
+    },
 }
 
 vim.g.indent_blankline_use_treesitter = false

@@ -58,6 +58,7 @@ wk.register({
             n = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
             r = {"<cmd>lua vim.lsp.buf.references()<cr>", "List references"},
             e = {"<cmd>lua vim.diagnostic.open_float()<cr>", "List line diagnostics"},
+            l = {"<cmd>lua require'myutils/lsp_lines'.lsp_lines_toggle()<cr>", "Beautified diagnostics"},
             k = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Lsp Hover"},
             -- p = {"<cmd>Lspsaga preview_definition<cr>", "Preview definition"},
             -- a = {"<cmd>Lspsaga code_action<cr>", "Code action"},

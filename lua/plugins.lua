@@ -74,6 +74,9 @@ return packer.startup(function(use)
         end
     }
 
+    -- lspkind
+    use 'onsails/lspkind.nvim'
+
     -- nvim-cmp sources
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -141,6 +144,14 @@ return packer.startup(function(use)
         },
         config = function()
             require "plugins/lspconfig"
+        end
+    }
+
+    -- lsp_lines
+    use {
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+        config = function()
+            require "plugins/lsp_lines"
         end
     }
 
