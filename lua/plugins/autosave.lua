@@ -6,6 +6,9 @@ autosave.setup {
     trigger_events = {"InsertLeave"},
     condition = function(buf)
         local fn = vim.fn
+        local bufprops = fn.getbufinfo(buf)
+        if string.find(bufprops[1].name, "Cargo.toml") ~= nil then return false end
+
         if
             fn.getbufvar(buf, "&modifiable") == 1 and
             utils.not_in(
