@@ -8,10 +8,3 @@ format.setup {
         }
     },
 }
-
-vim.cmd [[
-    augroup Format
-        autocmd!
-        autocmd BufWritePost * FormatWrite
-    augroup END
-]]

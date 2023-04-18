@@ -10,6 +10,15 @@ return packer.startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
 
+    -- nvim-notify
+    use {
+        'rcarriga/nvim-notify',
+        config = function()
+            require "plugins/notify"
+            vim.notify = require "notify"
+        end
+    }
+
     -- W3m browser
     use 'yuratomo/w3m.vim'
 
@@ -109,6 +118,14 @@ return packer.startup(function(use)
     -- Highlight similar textobjects
     use 'RRethy/vim-illuminate'
 
+    -- Neodim
+    --use {
+        --'zbirenbaum/neodim',
+        --config = function()
+            --require 'plugins/neodim'
+        --end
+    --}
+
     -- Aerial (LSP Objects listing)
     use {
         'stevearc/aerial.nvim',
@@ -178,11 +195,22 @@ return packer.startup(function(use)
         end
     }
 
+    use 'nvim-treesitter/playground'
+
     -- Persisted Session Manager
     use {
         'olimorris/persisted.nvim',
         config = function()
             require "plugins/persisted"
+        end
+    }
+
+    -- Scratch runner
+    use {
+        'm-demare/attempt.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function()
+            require 'plugins/attempt'
         end
     }
 
@@ -192,6 +220,8 @@ return packer.startup(function(use)
         config = function()
             local telescope = require "telescope"
             telescope.load_extension("persisted")
+            telescope.load_extension("attempt")
+            telescope.load_extension("notify")
         end
     }
 
@@ -300,12 +330,12 @@ return packer.startup(function(use)
     }
 
     -- Scrollbar
-    use {
-        'dstein64/nvim-scrollview',
-        config = function()
-            require "plugins/scrollview"
-        end
-    }
+    --use {
+        --'dstein64/nvim-scrollview',
+        --config = function()
+            --require "plugins/scrollview"
+        --end
+    --}
 
     -- Emacs Which-key
     use {
@@ -453,4 +483,46 @@ return packer.startup(function(use)
 
     -- Glow.nvim (Markdown preview)
     use 'ellisonleao/glow.nvim'
+
+    -- Better escape
+    use {
+        'max397574/better-escape.nvim',
+        config = function()
+            require("better_escape").setup {
+                mapping = {"jk", "kj"},
+            }
+        end
+    }
+
+    -- Fidget.nvim
+    use {
+        'j-hui/fidget.nvim',
+        config = function()
+            require 'plugins/fidget'
+        end
+    }
+
+    -- Overseer (Task Runner)
+    use {
+        'stevearc/overseer.nvim',
+        config = function()
+            require 'plugins/overseer'
+        end
+    }
+
+    -- Dressing (better ui)
+    use {
+        'stevearc/dressing.nvim',
+        config = function()
+            require 'plugins/dressing'
+        end
+    }
+
+    -- Lightbulb (indicate code actions)
+    use {
+        'kosayoda/nvim-lightbulb',
+        config = function()
+            require 'plugins/lightbulb'
+        end
+    }
 end)

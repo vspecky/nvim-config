@@ -13,13 +13,27 @@ rust.setup {
         },
     },
     server = {
+        on_init = function(client)
+            local path = client.workspace_folders[1].name
+
+            client.config.settings["rust-analyzer"].cargo = {}
+            local features = {}
+            if vim.endswith(path, "orca-cloud") then
+                features = {"sandbox", "sqlx_analytics", "connector_choice_bcompat"}
+            else
+                features = "all"
+            end
+
+            client.config.settings["rust-analyzer"].cargo.features = features
+
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            vim.notify("rust-analyzer config updated")
+            return true
+        end,
         settings = {
             ["rust-analyzer"] = {
                 procMacro = {
                     enable = true
-                },
-                cargo = {
-                    features = "all"
                 }
             }
         },

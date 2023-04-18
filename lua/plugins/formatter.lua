@@ -1,7 +1,7 @@
 local formatter = require "formatter"
 
 formatter.setup {
-    logging = false,
+    logging = true,
     log_level = vim.log.levels.DEBUG,
     filetype = {
         haskell = {
@@ -11,6 +11,19 @@ formatter.setup {
                     stdin = true
                 }
             end
+        },
+
+        rust = {
+            function()
+                return {
+                    exe = "rustfmt",
+                    args = {
+                        "--edition 2021",
+                    },
+                    stdin = true,
+                }
+            end
         }
     }
 }
+

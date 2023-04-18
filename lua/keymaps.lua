@@ -128,6 +128,7 @@ nnoremap("<leader>fm", "<cmd>Telescope man_pages<cr>")
 nnoremap("<leader>fr", "<cmd>Telescope lsp_references<cr>")
 nnoremap("<leader>fd", "<cmd>Telescope lsp_document_diagnostics<cr>")
 nnoremap("<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
+nnoremap("<leader>fn", "<cmd>Telescope notify<cr>")
 
 -- Bufferline
 nnoremap("<leader>bp", ":BufferLinePick<cr>")
@@ -185,14 +186,14 @@ nnoremap("<leader>ob", "<cmd>Broot<cr>")
 vim.cmd [[ autocmd FileType python nnoremap <silent> <leader>cd <cmd>Pydocstring<cr> ]]
 
 -- Rest client
-nnoremap("<leader>rr", "<Plug>RestNvim")
-nnoremap("<leader>rp", "<Plug>RestNvimPreview")
-nnoremap("<leader>ra", "<Plug>RestNvimLast")
+nnoremap("<leader>urr", "<Plug>RestNvim")
+nnoremap("<leader>urp", "<Plug>RestNvimPreview")
+nnoremap("<leader>ura", "<Plug>RestNvimLast")
 
 -- Spectre
-nnoremap("<leader>ss", "<cmd>lua require('spectre').open()<cr>")
-nnoremap("<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>")
-nnoremap("<leader>sf", "<cmd>lua require('spectre').open_file_search()<cr>")
+nnoremap("<leader>uss", "<cmd>lua require('spectre').open()<cr>")
+nnoremap("<leader>usw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>")
+nnoremap("<leader>usf", "<cmd>lua require('spectre').open_file_search()<cr>")
 
 -- Goto preview
 nnoremap("<leader>lpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>")
@@ -209,6 +210,17 @@ nnoremap("<leader>gU", "<cmd>Gitsigns reset_buffer_index<cr>")
 nnoremap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("<leader>gp", "<cmd>Gitsigns preview_hunk<cr>")
 nnoremap("<leader>gb", "<cmd>lua require'gitsigns'.blame_line{full=true}<cr>")
+
+-- Overseer
+nnoremap("<leader>utt", "<cmd>OverseerToggle!<cr>")
+nnoremap("<leader>utr", "<cmd>OverseerRun<cr>")
+nnoremap("<leader>utc", "<cmd>OverseerRunCmd<cr>")
+nnoremap("<leader>uti", "<cmd>OverseerInfo<cr>")
+nnoremap("<leader>uts", "<cmd>OverseerSaveBundle<cr>")
+nnoremap("<leader>utl", "<cmd>OverseerLoadBundle<cr>")
+
+-- Formatting
+nnoremap("<leader>rf", "<cmd>FormatWrite<cr>")
 
 -- Diffview
 local diffview_open = false

@@ -51,6 +51,7 @@ wk.register({
         -- LSP
         l = {
             name = "+Lsp",
+            a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action"},
             D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
             d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
             i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation"},
@@ -126,7 +127,8 @@ wk.register({
             m = {"<cmd>Telescope man_pages<cr>", "Search man pages"},
             r = {"<cmd>Telescope lsp_references<cr>", "Search lsp references"},
             d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Search document diagnostics"},
-            s = {"<cmd>Telescope lsp_document_symbols<cr>", "Search lsp symbols"}
+            s = {"<cmd>Telescope lsp_document_symbols<cr>", "Search lsp symbols"},
+            n = {"<cmd>Telescope notify<cr>", "Search notifications"},
         },
 
         -- Debugger
@@ -150,7 +152,7 @@ wk.register({
         -- Open
         o = {
             name = "+Open",
-            e = {":NvimTreeToggle<cr>", "Toggle nvimtree"},
+            e = {"<cmd>NvimTreeToggle<cr>", "Toggle nvimtree"},
             r = {"<cmd>Rg<cr>", "Ripgrep"},
             t = {"<cmd>TroubleToggle<cr>", "Toggle trouble"},
             a = {"<cmd>AerialToggle!<cr>", "Toggle aerial"},
@@ -159,20 +161,42 @@ wk.register({
             b = {"<cmd>Broot<cr>", "Open broot"}
         },
 
-        -- Rest client
+        -- Run (utility commands)
         r = {
-            name = "+Rest",
-            r = {"<Plug>RestNvim", "Execute request"},
-            p = {"<Plug>RestNvimPreview", "Preview curl command"},
-            a = {"<Plug>RestNvimLast", "Re-run last request"}
+            name = "+Run",
+            f = {"<cmd>FormatWrite<cr>", "Format buffer"}
         },
 
-        -- Spectre
-        s = {
-            name = "+Replace",
-            s = {"<cmd>lua require('spectre').open()<cr>", "Search and replace"},
-            w = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search word"},
-            f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Search in file"}
+        -- Utilities
+        u = {
+            name = "+Utilities",
+
+            -- Rest Client
+            r = {
+                name = "+Rest",
+                r = {"<Plug>RestNvim", "Execute request"},
+                p = {"<Plug>RestNvimPreview", "Preview curl command"},
+                a = {"<Plug>RestNvimLast", "Re-run last request"}
+            },
+
+            -- Overseer (Tasks)
+            t = {
+                name = "+Tasks",
+                t = {"<cmd>OverseerToggle!<cr>", "Toggle task pane"},
+                r = {"<cmd>OverseerRun<cr>", "Run a task"},
+                c = {"<cmd>OverseerRunCmd<cr>", "Run a raw cmd"},
+                i = {"<cmd>OverseerInfo<cr>", "Get plugin info"},
+                s = {"<cmd>OverseerSaveBundle<cr>", "Save task bundle"},
+                l = {"<cmd>OverseerLoadBundle<cr>", "Load task bundle"}
+            },
+
+            -- Spectre (Search & Replace)
+            s = {
+                name = "+S&R",
+                s = {"<cmd>lua require('spectre').open()<cr>", "Search and replace"},
+                w = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search word"},
+                f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Search in file"}
+            },
         }
     }
 })

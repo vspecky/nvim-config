@@ -69,7 +69,6 @@ local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- require'completion'.on_attach(client, bufnr)
-    aerial.on_attach(client)
     illuminate.on_attach(client)
     -- vtypes.on_attach(client, bufnr)
 
@@ -95,7 +94,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>lwl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     buf_set_keymap('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '<leader>l[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -179,6 +178,12 @@ nvim_lsp.tsserver.setup {
     cmd = {"typescript-language-server", "--stdio"},
     filetypes = {"javascript", "typescript"},
     single_file_support = true
+}
+
+nvim_lsp.jsonls.setup {
+    on_attach = on_attach,
+    cmd = {"vscode-json-language-server", "--stdio"},
+    single_file_support = true,
 }
 
 --nvim_lsp.rust_analyzer.setup {
