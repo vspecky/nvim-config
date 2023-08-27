@@ -1,8 +1,8 @@
 local blankline = require 'indent_blankline'
 
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
+vim.opt.list = false
+--vim.opt.listchars:append "space:⋅"
+--vim.opt.listchars:append "eol:↴"
 
 vim.cmd [[ hi IndentBlankLineCtx guifg=#fabd2f gui=nocombine ]]
 --vim.cmd [[ hi IndentBlankLineContextStart guifg=#fabd2f gui=nocombine ]]

@@ -19,7 +19,7 @@ rust.setup {
             client.config.settings["rust-analyzer"].cargo = {}
             local features = {}
             if vim.endswith(path, "orca-cloud") then
-                features = {"sandbox", "sqlx_analytics", "connector_choice_bcompat"}
+                features = "all"
             else
                 features = "all"
             end

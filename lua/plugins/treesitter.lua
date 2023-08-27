@@ -21,8 +21,8 @@ treesitter_conf.setup {
         persist_queries = false,
     },
     rainbow = {
-        enable = true,
-        extended_mode = true,
+        enable = false,
+        extended_mode = false,
         --colors = {
             --"Green",
             --"Yellow",

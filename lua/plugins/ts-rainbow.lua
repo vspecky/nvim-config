@@ -1,4 +1,4 @@
-vim.g.rainbow_active = true
+vim.g.rainbow_active = false
 vim.g.rainbow_ctermfgs = {
     'lightblue',
     'lightgreen',

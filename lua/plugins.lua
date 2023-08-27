@@ -525,4 +525,44 @@ return packer.startup(function(use)
             require 'plugins/lightbulb'
         end
     }
+
+    -- Codeblock highlight
+    --use {
+        --'HampusHauffman/block.nvim',
+        --config = function()
+            --require 'plugins/block'
+        --end
+    --}
+
+    -- Bionic reading
+    --use {
+        --'HampusHauffman/bionic.nvim',
+        --config = function()
+            --vim.cmd([[ autocmd FileType * Bionic ]])
+        --end
+    --}
+
+    use {
+        'MunifTanjim/nui.nvim'
+    }
+
+    use {
+        'giusgad/hologram.nvim',
+        config = function()
+            require('hologram').setup {
+                auto_display = false
+            }
+        end
+    }
+
+    use {
+        'giusgad/pets.nvim',
+        requires = {
+            'MunifTanjim/nui.nvim',
+            'giusgad/hologram.nvim'
+        },
+        config = function()
+            require('pets').setup {}
+        end
+    }
 end)

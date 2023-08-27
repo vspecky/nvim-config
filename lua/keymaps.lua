@@ -212,7 +212,8 @@ nnoremap("<leader>gp", "<cmd>Gitsigns preview_hunk<cr>")
 nnoremap("<leader>gb", "<cmd>lua require'gitsigns'.blame_line{full=true}<cr>")
 
 -- Overseer
-nnoremap("<leader>utt", "<cmd>OverseerToggle!<cr>")
+nnoremap("<leader>utt", "<cmd>OverseerToggle<cr>")
+nnoremap("<leader>utT", "<cmd>OverseerToggle!<cr>")
 nnoremap("<leader>utr", "<cmd>OverseerRun<cr>")
 nnoremap("<leader>utc", "<cmd>OverseerRunCmd<cr>")
 nnoremap("<leader>uti", "<cmd>OverseerInfo<cr>")

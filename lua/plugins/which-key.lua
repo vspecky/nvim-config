@@ -182,7 +182,8 @@ wk.register({
             -- Overseer (Tasks)
             t = {
                 name = "+Tasks",
-                t = {"<cmd>OverseerToggle!<cr>", "Toggle task pane"},
+                t = {"<cmd>OverseerToggle<cr>", "Toggle task pane (and focus)"},
+                T = {"<cmd>OverseerToggle!<cr>", "Toggle task pane"},
                 r = {"<cmd>OverseerRun<cr>", "Run a task"},
                 c = {"<cmd>OverseerRunCmd<cr>", "Run a raw cmd"},
                 i = {"<cmd>OverseerInfo<cr>", "Get plugin info"},
