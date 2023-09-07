@@ -74,6 +74,7 @@ cmd [[
     autocmd BufNewFile,BufRead *.nvimd set virtualedit=all
     autocmd BufNewFile,BufRead *.nvimd lua toggle_venn()
     autocmd BufNewFile,BufRead *.nvimd set filetype=nvimd
+    autocmd BufNewFile,BufRead *.Jenkinsfile set filetype=groovy
     autocmd FileType php setlocal autoindent
     autocmd FileType make setlocal noexpandtab
 ]]
