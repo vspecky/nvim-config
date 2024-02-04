@@ -75,6 +75,9 @@ cmd [[
     autocmd BufNewFile,BufRead *.nvimd lua toggle_venn()
     autocmd BufNewFile,BufRead *.nvimd set filetype=nvimd
     autocmd BufNewFile,BufRead *.Jenkinsfile set filetype=groovy
+    autocmd BufNewFile,BufRead *.qnt set filetype=quint
+    autocmd BufNewFile,BufReadPost *.qnt runtime syntax/quint.vim
+    autocmd FileType quint lua vim.lsp.start({name = 'quint', cmd = {'quint-language-server', '--stdio'}, root_dir = vim.fs.dirname()})
     autocmd FileType php setlocal autoindent
     autocmd FileType make setlocal noexpandtab
 ]]
@@ -85,3 +88,9 @@ fn.sign_define("LspDiagnosticsSignInformation", {text = "", texthl = "Gruvbox
 fn.sign_define("LspDiagnosticsSignHint", {text = "", texthl = "GruvboxAqua"})
 
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+cmd [[
+    iabbrev _cgamma <C-v>u0393
+    iabbrev _tstile <C-v>u22A2
+    iabbrev _membof <C-v>u2208
+]]

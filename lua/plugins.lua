@@ -565,4 +565,12 @@ return packer.startup(function(use)
             require('pets').setup {}
         end
     }
+
+    -- Autoformat
+    use {
+        'stevearc/conform.nvim',
+        config = function()
+            require 'plugins/conform'
+        end
+    }
 end)

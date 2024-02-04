@@ -14,6 +14,10 @@ treesitter_conf.setup {
     highlight = {
         enable = true
     },
+    indent = {
+        enable = true,
+        disable = { "python" }
+    },
     playground = {
         enable = true,
         disable = {},
