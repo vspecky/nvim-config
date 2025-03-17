@@ -283,27 +283,27 @@ return packer.startup(function(use)
     }
 
     -- DAP (Debugger)
-    use {
-        'mfussenegger/nvim-dap',
-        config = function()
-            require "plugins/dap"
-            require "dbg/rust"
-        end
-    }
+    --use {
+        --'mfussenegger/nvim-dap',
+        --config = function()
+            --require "plugins/dap"
+            --require "dbg/rust"
+        --end
+    --}
 
     -- DAP UI (Debugger UI)
-    use {
-        'rcarriga/nvim-dap-ui',
-        requires = {
-            "mfussenegger/nvim-dap"
-        },
-        config = function()
-            require "plugins/dap-ui"
-        end
-    }
+    --use {
+        --'rcarriga/nvim-dap-ui',
+        --requires = {
+            --"mfussenegger/nvim-dap"
+        --},
+        --config = function()
+            --require "plugins/dap-ui"
+        --end
+    --}
 
     -- DAPInstall
-    use 'xbc5/DAPInstall.nvim'
+    --use 'xbc5/DAPInstall.nvim'
 
     -- LSP Symbols outline
     use {
@@ -354,12 +354,12 @@ return packer.startup(function(use)
     -- }
 
     -- Rest Client
-    use {
-        'NTBBloodbath/rest.nvim',
-        config = function()
-            require "plugins/rest"
-        end
-    }
+    --use {
+        --'NTBBloodbath/rest.nvim',
+        --config = function()
+            --require "plugins/rest"
+        --end
+    --}
 
     -- Peek lines unobtrusively
     use {
@@ -378,12 +378,12 @@ return packer.startup(function(use)
     --}
 
     -- Venn diagram tools
-    use {
-        'jbyuki/venn.nvim',
-        config = function()
-            require "plugins/venn"
-        end
-    }
+    --use {
+        --'jbyuki/venn.nvim',
+        --config = function()
+            --require "plugins/venn"
+        --end
+    --}
 
     -- Autosave files
     use {
@@ -418,7 +418,7 @@ return packer.startup(function(use)
     }
 
     -- Better JSON exploration
-    use 'gennaro-tedesco/nvim-jqx'
+    --use 'gennaro-tedesco/nvim-jqx'
 
     -- Preview definitions in floating window
     use {
@@ -429,12 +429,12 @@ return packer.startup(function(use)
     }
 
     -- Rainbow parentheses
-    use {
-        'p00f/nvim-ts-rainbow',
-        config = function()
-            require "plugins/ts-rainbow"
-        end
-    }
+    --use {
+        --'p00f/nvim-ts-rainbow',
+        --config = function()
+            --require "plugins/ts-rainbow"
+        --end
+    --}
 
     -- Simple git functions
     use {
@@ -479,36 +479,36 @@ return packer.startup(function(use)
     }
 
     -- Haskell indentation
-    use 'itchyny/vim-haskell-indent'
+    --use 'itchyny/vim-haskell-indent'
 
     -- Glow.nvim (Markdown preview)
-    use 'ellisonleao/glow.nvim'
+    --use 'ellisonleao/glow.nvim'
 
     -- Better escape
-    use {
-        'max397574/better-escape.nvim',
-        config = function()
-            require("better_escape").setup {
-                mapping = {"jk", "kj"},
-            }
-        end
-    }
+    --use {
+        --'max397574/better-escape.nvim',
+        --config = function()
+            --require("better_escape").setup {
+                --mapping = {"jk", "kj"},
+            --}
+        --end
+    --}
 
     -- Fidget.nvim
-    use {
-        'j-hui/fidget.nvim',
-        config = function()
-            require 'plugins/fidget'
-        end
-    }
+    --use {
+        --'j-hui/fidget.nvim',
+        --config = function()
+            --require 'plugins/fidget'
+        --end
+    --}
 
     -- Overseer (Task Runner)
-    use {
-        'stevearc/overseer.nvim',
-        config = function()
-            require 'plugins/overseer'
-        end
-    }
+    --use {
+        --'stevearc/overseer.nvim',
+        --config = function()
+            --require 'plugins/overseer'
+        --end
+    --}
 
     -- Dressing (better ui)
     use {
@@ -542,29 +542,29 @@ return packer.startup(function(use)
         --end
     --}
 
-    use {
-        'MunifTanjim/nui.nvim'
-    }
+    --use {
+        --'MunifTanjim/nui.nvim'
+    --}
 
-    use {
-        'giusgad/hologram.nvim',
-        config = function()
-            require('hologram').setup {
-                auto_display = false
-            }
-        end
-    }
+    --use {
+        --'giusgad/hologram.nvim',
+        --config = function()
+            --require('hologram').setup {
+                --auto_display = false
+            --}
+        --end
+    --}
 
-    use {
-        'giusgad/pets.nvim',
-        requires = {
-            'MunifTanjim/nui.nvim',
-            'giusgad/hologram.nvim'
-        },
-        config = function()
-            require('pets').setup {}
-        end
-    }
+    --use {
+        --'giusgad/pets.nvim',
+        --requires = {
+            --'MunifTanjim/nui.nvim',
+            --'giusgad/hologram.nvim'
+        --},
+        --config = function()
+            --require('pets').setup {}
+        --end
+    --}
 
     -- Autoformat
     use {
