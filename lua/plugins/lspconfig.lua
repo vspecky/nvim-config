@@ -172,12 +172,12 @@ nvim_lsp.purescriptls.setup {
     single_file_support = true
 }
 
-nvim_lsp.tsserver.setup {
-    on_attach = on_attach,
-    cmd = {"typescript-language-server", "--stdio"},
-    filetypes = {"javascript", "typescript"},
-    single_file_support = true
-}
+--nvim_lsp.tsserver.setup {
+    --on_attach = on_attach,
+    --cmd = {"typescript-language-server", "--stdio"},
+    --filetypes = {"javascript", "typescript"},
+    --single_file_support = true
+--}
 
 nvim_lsp.jsonls.setup {
     on_attach = on_attach,

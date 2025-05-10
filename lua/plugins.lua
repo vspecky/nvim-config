@@ -471,11 +471,15 @@ return packer.startup(function(use)
     use 'purescript-contrib/purescript-vim'
 
     -- Rust tools
+    --use {
+        --'simrat39/rust-tools.nvim',
+        --config = function()
+            --require 'plugins/rusttools'
+        --end
+    --}
+
     use {
-        'simrat39/rust-tools.nvim',
-        config = function()
-            require 'plugins/rusttools'
-        end
+        'mrcjkb/rustaceanvim'
     }
 
     -- Haskell indentation
@@ -495,12 +499,12 @@ return packer.startup(function(use)
     --}
 
     -- Fidget.nvim
-    --use {
-        --'j-hui/fidget.nvim',
-        --config = function()
-            --require 'plugins/fidget'
-        --end
-    --}
+    use {
+        'j-hui/fidget.nvim',
+        config = function()
+            require 'plugins/fidget'
+        end
+    }
 
     -- Overseer (Task Runner)
     --use {
@@ -571,6 +575,14 @@ return packer.startup(function(use)
         'stevearc/conform.nvim',
         config = function()
             require 'plugins/conform'
+        end
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
         end
     }
 end)

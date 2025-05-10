@@ -94,3 +94,5 @@ cmd [[
     iabbrev _tstile <C-v>u22A2
     iabbrev _membof <C-v>u2208
 ]]
+
+vim.lsp.inlay_hint.enable()
